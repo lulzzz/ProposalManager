@@ -1,0 +1,383 @@
+﻿
+.Filearea {
+    width: 433px !important;
+}
+
+.checkCover_2442c1cf {
+    position: relative !important;
+}
+
+/*.Filearea,button[disabled] {
+        background: #ccc !important;
+    }*/
+
+  .checkboxAligment {
+        width: 279px !important;
+    }
+
+.iteamheader {
+    width: 278px !important;
+}
+
+.mt50 {
+    margin-top:50px !important;
+}
+.mb50 {
+    margin-bottom:50px;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mt6 {
+    margin-top:6px;
+}
+.mr20 {
+    margin-right: 20px;
+}
+
+.pL0 {
+    padding-left:0px !important;
+}
+
+.font-white {
+    color:#fff !important;
+}
+
+.TabAuthLoader .label-40 {
+    color:#fff !important;
+}
+
+.darkoverlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    margin:0px !important;
+}
+
+.tabcontrols .ms-Pivot {
+    position: fixed !important;
+    bottom: 0 !important;
+    z-index: 100001;
+    width: 100%;
+    background: #f3f2f1;
+    border-left: 1px solid #ccc;
+}
+
+.TopLeftArrow {
+    background: url(../components-teams/images/Arrow.png);
+    height: 125px;
+    background-repeat: no-repeat;
+    background-position: right 50px;
+}
+
+.TopRightArrow {
+    background:url(../components-teams/images/Arrow-3.png);
+    height: 125px;
+    background-repeat: no-repeat;
+    background-position: -6px 58px;
+}
+
+
+.BottomLeftArrow {
+    background: url(../components-teams/images/Arrow-1.png);
+    height: 125px;
+    background-repeat: no-repeat;
+    background-position: right -40px;
+}
+
+.BottomRightArrow {
+    background: url(../components-teams/images/Arrow-2.png);
+    height: 125px;
+    background-repeat: no-repeat;
+    background-position: -8px 11px;
+}
+
+.pl15 {
+    padding-left:15px !important;
+}
+.pl10 {
+    padding-left: 10px !important;
+}
+.p20A {
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.font-white {
+    color:#fff !important;
+}
+
+.pa15px {
+    padding: 15px;
+}
+
+.mr5A {
+    margin:5px;
+}
+.bgwhite {
+    background:#fff;
+    height:100%;
+    padding:20px;
+    position:absolute !important;
+}
+.tabviewUpdates {
+    position: relative;
+    bottom: 10px;
+    width: 100%;
+    top: 0;
+    min-height: 200px;
+    /*overflow: hidden;*/
+}
+
+.noscroll {
+    overflow:scroll !important;
+}
+
+.tabcontrols {
+    position: relative;
+    bottom: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+.flao06b {
+	box-sizing: border-box;
+	flex: 1 1 auto;
+	overflow: visible !important;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+.rootIsHorizontalConstrained_f77b8aa8 {
+	overflow-x: visible !important;
+	overflow-y: visible;
+	-webkit-overflow-scrolling: touch;
+}
+.tabcontrols > .ms-Pivot {
+    position: absolute !important;
+    bottom: 2px;
+
+}
+.secondheading h3 {
+    font-size: 21px;
+    font-weight: normal;
+    padding: 15px;
+}
+.Pa10 {
+    padding:10px;
+}
+hr {
+    margin-top:0;
+    margin-bottom:5px;
+}
+.colorGray {
+    color: #8a8a8a;
+}
+ .listName label{
+     font-weight:normal;
+}
+.fqabci0 {
+    align-items: center;
+    /* background-color: #F3F2F1; */
+    border: NaNrem solid;
+    /* border-color: transparent; */
+    border-radius: NaNrem;
+    color: #252424;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: inherit;
+    font-size: NaNrem;
+    height: NaNrem;
+    border: 1px solid #ccc;
+    outline: none;
+    padding-bottom: 0;
+    background: #fff;
+    padding: 10px;
+    padding-top: 0;
+    text-align: left;
+    white-space: nowrap;
+    width: 100%;
+    padding:10px;
+    height:30px;
+    border:1px solid #ccc !important;
+    background:#fff;
+}
+
+.f1wt0yvj:checked + .feb7cs {
+    background: #6264A7;
+    border: 1px solid #9091ad;
+    width: 20px;
+    height: 20px;
+    margin: -1px;
+}
+    .f1wt0yvj:checked + .feb7cs::before {
+        color: #FFFFFF;
+        content: "\e412";
+        font-family: MSTeamsIcons-Light;
+        font-size: NaNrem;
+        height: NaNrem;
+        left: NaNrem;
+        line-height: NaNrem;
+        padding: 0;
+        position: relative !important;
+        top: NaNrem;
+        width: NaNrem;
+    }
+.fls4uhe {
+    padding-left:15px;
+    padding-top:5px;
+}
+
+.fgevsk2 {
+    background-color: #fff !important;
+}
+
+tbody input {
+    background-color: #fff !important;
+}
+.teachingBubble .ms-Callout-main {
+	background-color: black;
+}
+
+.ms-TeachingBubble-content {
+	background: lightgray !important;
+	padding-bottom:20px !important;
+}
+.ms-TeachingBubble-headline {
+	color:black !important;
+}
+
+.ms-TeachingBubble-closebutton .closeButton_2e40bc5e {
+	background:red !important;
+
+}
+.ms-Button-flexContainer .ms-Button-icon {
+	margin-top: 4px;
+}
+
+.ms-Checkbox {
+	width: auto !important;
+	
+}
+.font-16 {
+    font-size:16px;
+}
+.fge9t2w {
+    border: 1px solid #ccc;
+    background: #fff;
+}
+.Smallwidth {
+    width: 40px;
+    float: left;
+}
+.proposalStatusTbl {
+    width: 100%;
+} 
+
+.proposalStatusTbl tbody tr td{
+    padding:10px;
+
+
+}
+
+.formalPpslHeading {
+    background: #868686 !important;
+    height: 35px !important;
+} 
+ .ms-List-th-itemSections
+{
+    width: 150px !important;
+    float: left !important;
+}
+
+.ms-List-th-itemOwner {
+    width: 25% !important;
+    float: left;
+}
+
+.ms-List-th-itemStatus {
+    float: left !important;
+    width: 34% !important;
+}
+
+.ms-List-th-itemLastUpdated {
+    width: 20% !important;
+    float: left;
+}
+
+.ms-List-itemSections {
+    width: 20% !important;
+    float: left !important;
+}
+
+.ms-List-itemOwner {
+    width: 25% !important;
+    float: left;
+}
+
+.ms-List-itemStatus {
+    float: left !important;
+    width: 34% !important;
+}
+
+.ms-List-itemLastUpdated {
+    width: 20% !important;
+    float: left;
+}
+
+
+
+@media all and (max-width: 699px) and (min-width: 0px) {
+    .tabcontrols .ms-Pivot {
+        position: relative !important;
+        z-index: 100001;
+        background:none !important;
+       
+    }
+    .ms-Pivot {
+        position: relative !important;
+        margin: 38px 0 15px 0;
+    }
+    .rightposition {
+        float:right;
+    }
+    .toppt {
+        padding-top:10px;
+    }
+    #FocusZone3 {
+        margin-top: 15px;
+    }
+    .ms-List-itemSections {
+        width:100% !important;
+    }
+   .ms-List-itemOwner {
+       width:100% !important;
+    }
+    .ms-List-itemStatus {
+        width: 100% !important;
+    }
+    .ms-List-itemLastUpdated {
+        width: 100% !important;
+    }
+    .Filearea {
+        width: 428px !important;
+    }
+    .browsebutton {
+        width: 270px !important;
+    }
+    .categoryResponssive {
+        width: 196px !important;
+    }
+
+}
+
+/* Teams Workflow page */
+.divUserRolegroup {
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    margin-bottom:20px;
+}

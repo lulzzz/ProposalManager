@@ -1,0 +1,26 @@
+﻿{
+  "name": "Opportunity",
+  "columns": [
+    {
+      "name": "Id",
+      "text": {},
+      "indexed": true
+    },
+    {
+      "name": "DisplayName",
+      "text": {},
+      "indexed": true
+    },
+    {
+      "name": "OpportunityState",
+      "text": {}
+    },
+    {
+      "name": "OpportunityArtifact",
+      "text": {}
+    }
+  ],
+  "list": {
+    "template": "genericList"
+  }
+}

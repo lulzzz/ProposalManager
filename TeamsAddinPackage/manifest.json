@@ -1,0 +1,52 @@
+{
+  "$schema": "https://statics.teams.microsoft.com/sdk/v1.2/manifest/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.2",
+  "version": "1.0.0",
+  "id": "be9cae62-f0a5-49a1-8799-1a3c28ed88a0",
+  "packageName": "com.teams.porpmgmt",
+  "developer": {
+    "name": "Microsoft",
+    "websiteUrl": "<to be updated>",
+    "privacyUrl": "<to be updated>",
+    "termsOfUseUrl": "<to be updated>"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Proposal Manager",
+    "full": "Proposal Manager Tab Add-in for Microsoft Teams"
+  },
+  "description": {
+    "short": "Empower banking with Proposal Manager tool.",
+    "full": "Empower banking with Proposal Manager tool."
+  },
+  "accentColor": "#FFFFFF",
+  "configurableTabs": [
+    {
+      "configurationUrl": "<to be updated>/tab/config?channelName={channelName}&teamName={teamName}&groupId={groupId}&channelId={channelId}&upn={upn}",
+      "canUpdateConfiguration": true,
+      "scopes": [
+        "team"
+      ]
+    }
+  ],
+  "bots": [
+    {
+      "botId": "<to be updated>",
+      "scopes": [
+        "personal",
+        "team"
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "<to be updated>",
+    "login.microsoftonline.com"
+  ]
+}

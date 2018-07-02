@@ -1,0 +1,1026 @@
+﻿/* Style CSS new File*/
+
+body {
+    background: #f0f0f0;
+}
+a:hover, a:focus {
+    color: #23527c;
+    text-decoration: none !important;
+} 
+
+.normalPicker {
+    width: auto !important;
+}
+
+.mainpanel {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    top: 40px;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.checkCover_2442c1cf {
+    position: relative !important;
+}
+
+.greybutton {
+    background: #565656 !important;
+    color: #fff !important;
+}
+
+.clientcolum > .ms-List-itemClient {
+    width: auto !important;
+}
+
+.item_2f44491a:hover {
+    background: #000 !important;
+}
+
+.tagsfield {
+    width: 170px !important;
+}
+
+.filepickerAlign {
+    width: 140px;
+    float: left;
+}
+
+.actioniconAlign {
+    width: 60px !important;
+}
+
+
+.itemLink_0b370f0f {
+    color: #ffffff;
+}
+
+.itemText_0b370f0f {
+    color: #ffffff;
+}
+
+
+
+.ms-CommandBarItem-text, .ms-CommandBarItem-link {
+    color: #fff !important;
+    background: #000000 !important;
+}
+
+.ms-SearchBox {
+    background: #fff;
+    border: 1px solid #cacaca;
+}
+
+.ms-TextField-fieldGroup {
+    background: #fff;
+    border: 1px solid #cacaca;
+}
+
+.ms-Label {
+    font-weight: normal;
+    padding-top: 15px;
+}
+
+.title_3bf0832d {
+    border: 1px solid #cacaca;
+}
+
+.pageheading {
+    color: #0e8dbb;
+    padding-bottom: 10px;
+}
+
+.ibox-content {
+    background-color: #ffffff;
+    padding: 15px 20px 20px 20px;
+    border: 1px solid #e1e1e1;
+    float: left;
+    width: 100%;
+}
+.mt0 {
+    margin-top:0px !important;
+}
+
+.pb20 {
+    padding-bottom: 20px;
+}
+
+.pt15 {
+    padding-top: 15px;
+}
+.pb15 {
+    padding-bottom:15px;
+}
+.mt20 {
+    margin-top:20px;
+}
+
+.mr20 {
+    margin-right:20px;
+}
+
+.p25A {
+    padding: 25px !important;
+}
+
+.pl0 {
+    padding-left: 0px;
+}
+
+.pb15 {
+    padding-bottom: 15px;
+}
+
+.pr18 {
+    padding-right: 18px;
+}
+
+.pb70 {
+    padding-bottom: 70px !important;
+}
+
+.rootIsHorizontalConstrained_a0d2d5ce {
+    overflow-x: visible;
+    overflow-y: visible;
+}
+
+.root_c02a516e {
+    border-bottom: none !important;
+}
+
+.controlledPickerButton {
+    height: auto !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btnDisable {
+    background-color: #ccc !important;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.errorMessage_b1e63eb7 {
+    padding-top: 5px;
+    display: -webkit-box;
+    background: #ffdede;
+    padding-bottom: 15px;
+    padding: 5px;
+}
+
+.table th {
+    background: #3aafd9;
+    color: #fff;
+    font-weight: normal;
+    padding: 12px !important;
+}
+
+.table {
+    background: #fff;
+    border: 1px solid #dbdbdb;
+}
+
+.table td {
+        border-top: 1px solid #D4D4D4;
+        padding: 12px !important;
+    }
+
+
+.pr10 {
+    padding-right: 10px;
+}
+
+.assigned {
+    color: dodgerblue;
+}
+
+.draft {
+    color: maroon;
+}
+
+.notstarted, .status0 {
+    color: black;
+}
+
+.blocked, .status2 {
+    color: red;
+}
+.pt10 {
+    padding-top:10px;
+}
+.docUploadSection {
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin: 30px 0 0 0;
+    background: #f7f7f7cc;
+}
+.completed, .status3 {
+    color: green;
+}
+
+.submitted {
+    color: lightskyblue;
+}
+
+.accepted {
+    color: seagreen;
+}
+
+.inprogress, .status1 {
+    color: maroon;
+}
+
+.inreview {
+    color: darkblue;
+}
+
+.backbutton {
+    background-color: #000 !important;
+    color: white;
+}
+
+.btnDelete {
+    color: red;
+}
+
+.bg-grey {
+    background-color: #f4f4f4;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.p-5 {
+    padding: 5px;
+}
+
+.p-10 {
+    padding: 10px !important;
+}
+
+.align-middle {
+    vertical-align: middle !important;
+}
+
+.centerBlock {
+    margin: auto;
+    display: table;
+}
+
+.p-r-10 {
+    padding-right: 10px;
+}
+
+.p-l-10 {
+    padding-left: 10px;
+}
+
+.p-l-60 {
+    padding-left: 60px !important;
+}
+
+.p-b-10 {
+    padding-bottom: 10px !important;
+}
+
+/*.TopLeftArrow {
+    background: url(Images/Arrow.png);
+    height: 125px;
+    background-repeat: no-repeat;
+    background-position: right 50px;
+}
+
+.TopRightArrow {
+    background: url(Images/Arrow-3.png);
+    height: 125px;
+    background-repeat: no-repeat;
+    background-position: -6px 58px;
+}
+
+
+.BottomLeftArrow {
+    background: url(Images/Arrow-1.png);
+    height: 125px;
+    background-repeat: no-repeat;
+    background-position: right -40px;
+}
+
+.BottomRightArrow {
+    background: url(Images/Arrow-2.png);
+    height: 125px;
+    background-repeat: no-repeat;
+    background-position: -8px 11px;
+}*/
+
+.pt35 {
+    padding-top: 35px !important;
+}
+
+.pr0 {
+    padding-right: 0px;
+}
+.pl0 {
+    padding-left:0px;
+}
+.ms-Label {
+    padding-top: 0px;
+}
+
+.newOpBg {
+    background: url(../src/components/Images/defaultArrows.png);
+    height: 114px;
+    background-repeat: no-repeat;
+    background-position: center right;
+    /*background-position: 164px 49px;*/
+}
+
+.divUserRolegroup-arrow {
+    background:url(../src/components/Images/defaultArrows.png)#fff;
+    background-repeat: no-repeat;
+    background-position: right 45px;
+    padding: 0px 20px 0px 5px;
+}
+
+.divUserRolegroup {
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    background: #fff;
+    height: auto;
+    float: left;
+    width: 100%;
+}
+
+.TeamMembersBG {
+    background: #fff;
+    padding: 15px;
+}
+
+.p20A {
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.f-bold span, h5 {
+    font-weight: bold !important;
+}
+
+.colorGray {
+    color: #8a8a8a;
+    cursor: pointer;
+}
+
+.cur-pointer {
+    cursor: pointer;
+}
+
+.controlledPickerButton {
+    height: auto !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Notes */
+.p15 {
+    padding: 15px;
+}
+
+.TeamMembersBG {
+    position: absolute;
+    /*bottom: 0;*/
+    top: 0;
+    right: 0;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.ms-CommandBar {
+    background: #000000 !important;
+    position: fixed !important; 
+    width: 100%;
+    z-index: 1000;
+}
+
+.TeamsBGnew {
+}
+.ModifyButton {
+    width:100%;
+}
+
+.borderbottom {
+    border-bottom: 1px solid #ccc;
+}
+
+.mr5A {
+    margin:5px ;
+}
+.p10A {
+    padding:10px;
+}
+
+.pb10 {
+    padding-bottom:10px;
+}
+
+
+.ms-List-th {
+    background: #3aafd9 !important;
+    color: #fff;
+    font-weight: normal;
+    padding: 10px !important;
+    height: auto;
+}
+.ms-List-th:hover {
+    background: #3aafd9 !important;
+    color: #fff !important;
+    font-weight: normal;
+    padding: 10px !important;
+    height: auto;
+}
+
+.ms-List-th-itemName {
+    width: 30%;
+    float: left;
+}
+
+.ms-List-th-itemClient {
+    width: 25%;
+    float: left;
+}
+
+.ms-List-th-itemDealsize {
+    width: 15%;
+    float: left;
+}
+
+.ms-List-th-itemDate {
+    width: 10%;
+    float: left;
+}
+
+.ms-List-th-itemState {
+    width: 15%;
+    float: left;
+}
+.ms-List-th-item {
+    background: #fff;
+}
+
+.ms-List {
+    background: #fff;
+    border: 1px solid #dbdbdb;
+}
+
+.ms-List-itemCell {
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+    .ms-List-itemCell:hover {
+        background: #EEE;
+    }
+
+.ms-List-itemImage {
+    flex-shrink: 0;
+}
+
+.ms-List-itemContent {
+    @include margin-left(10px);
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+
+.ms-List-itemIndex {
+    font-size: $ms-font-size-s;
+    color: $ms-color-neutralTertiary;
+    margin-bottom: 5px;
+    visibility: hidden;
+}
+
+.ms-List-itemName {
+    @include ms-font-xl;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 30%;
+    float: left;
+}
+
+.ms-List-itemClient {
+    @include ms-font-xl;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 25%;
+    float: left;
+}
+
+.ms-List-itemDealsize {
+    @include ms-font-xl;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 15%;
+    float: left;
+}
+
+.ms-List-itemDate {
+    @include ms-font-xl;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*width: 10%;*/
+    float: left;
+}
+
+
+.AdminDate {
+    width: auto !important;
+}
+
+.ms-List-itemState {
+    @include ms-font-xl;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 15%;
+    float: left;
+}
+
+.ms-List-chevron {
+    align-self: center;
+    @include margin-left(10px);
+    color: $ms-color-neutralTertiary;
+    font-size: $ms-font-size-l;
+    flex-shrink: 0;
+}
+
+.TablHeading {
+    height: 37px !important;
+} 
+
+.cell_5758c862.cellIsActionable_5758c862:hover {
+    color: #fff !important;
+    background: #3aafd9 !important;
+}
+
+.ms-List-itemName {
+    width: auto !important;
+}
+
+.cell_5758c862 {
+    color: #fff !important;
+    font-weight: bold !important;
+}
+
+.delectBTNwidth {
+    width: 58px !important;
+}
+
+.light-grey {
+    background: #dedede;
+    margin: 25px 0px 0px 25px;
+    border: 1px solid #d6d6d6;
+}
+
+.cell_5758c862 {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.ms-List-th {
+    background: #3aafd9;
+    color: #fff !important;
+    font-weight: bold !important;
+    padding: 10px !important;
+    height: auto;
+    float: none !important;
+}
+
+.rootIsHorizontalConstrained_8eab4ccb {
+    overflow-x: visible !important;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ms-CommandBarItem-text, .ms-CommandBarItem-link {
+    color: #fff !important;
+    background: #000000 !important;
+}
+
+.LsitBoxAlign {
+    width: 100%;
+    float: left;
+    padding-top: 15px;
+}
+
+.p20ALL {
+    padding:20px !important;
+}
+
+.chanelheading {
+    width:135px !important;
+}
+
+.chanelheading-Column {
+    width: 135px !important;
+}
+
+.ActionHeading {
+    width: 57px !important;
+}
+
+.ActionDelete {
+    width: 37px !important;
+}
+
+.ActionDelete button[disabled] {
+        background: transparent !important;
+        opacity: .3;
+        
+    }
+.cell_31203130 {
+    color: #fff !important;
+    font-weight:bold !important;
+}
+.cell_31203130.cellIsActionable_31203130:hover {
+    color: #fff !important;
+    background: #3aafd9 !important;
+}
+
+/*  Tab Over Writing */
+.root_d746aa1d.rootIsTabs_d746aa1d .link_d746aa1d {
+    margin-right: 0px;
+    border-right: 1px solid #d6d6d6 !important;
+    border-top: 1px solid #dedede !important;
+}
+
+.root_d746aa1d {
+    border-left: 1px solid #ccc !important;
+}
+
+/* Index CSS Merge */
+.BgImage {
+    height: 100%;
+    width: 100%;
+    background: url(Images/bg-image.jpg) no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+}
+
+.BgConfigImage {
+    height: 100%;
+    width: 100%;
+    background: url(Images/Home-image.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+}
+
+.Loading-spinner {
+    position: absolute;
+    top: -21px;
+    text-align: center;
+    left: 43%;
+    padding: 20px;
+    z-index: 3333;
+}
+
+.Caption {
+    margin-top: 25%;
+    width: 60%;
+    line-height: 1.3em;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+}
+
+
+
+    .Caption h2 {
+        font-size: 5em;
+    }
+
+.refreshbutton {
+    right: 25px;
+}
+
+.WhiteFont {
+    color: #fff;
+}
+
+.Homespinnner > .ms-Spinner--medium {
+    float: left !important;
+    margin: 9px 0 0 0 !important;
+}
+
+.Homespinnner > .ms-Spinner-label {
+    float: left !important;
+    margin-top: 15px 0 0 0 !important;
+    padding-left: 20px !important;
+    color: #fff;
+}
+
+/* Nav Menu CSS Merge */
+
+.navbar li .glyphicon {
+    margin-right: 10px;
+}
+
+.navbar-fixed-top {
+    top: 40px;
+    border-width: 0 0 1px;
+}
+
+.pl0 {
+    padding-left: 0px;
+}
+
+.pr0 {
+    padding-right: 0px;
+}
+
+.blackbg {
+    background: #000;
+}
+
+.row {
+    overflow: hidden;
+}
+
+.navbar-inverse {
+    background: #262626;
+}
+
+/* Highlighting rules for nav menu items */
+.navbar .navbar-nav .active a,
+.navbar .navbar-nav .active a:hover,
+.navbar .navbar-nav .active a:focus {
+    background-image: none;
+    background-color: #4189C7;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    /* On large screens, convert the nav menu to a vertical sidebar */
+    .navbar {
+        height: 100%;
+        width: calc(18% - 20px);
+    }
+
+    .navbar {
+        border-radius: 0;
+        border-width: 0;
+        height: 100%;
+    }
+
+    .navbar-header {
+        float: none;
+    }
+
+    .navbar .navbar-collapse {
+        border-top: 1px solid #444;
+        padding: 0;
+    }
+
+    .navbar .container-fluid {
+        padding: 0;
+        margin: 0;
+    }
+
+        .navbar .container-fluid .navbar-brand {
+            margin: 0;
+        }
+
+    .navbar ul {
+        float: none;
+    }
+
+    .navbar li {
+        float: none;
+        font-size: 15px;
+        /*margin: 6px;*/
+    }
+
+        .navbar li a {
+            padding: 10px 16px;
+            border-radius: 4px;
+        }
+
+    .navbar a {
+        /* If a menu item's text is too long, truncate it */
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+ 
+.ms-CommandBar {
+    background: #000000 !important;
+}
+
+
+.formalPpslHeading {
+    background: #868686 !important;
+    height: 35px !important;
+}
+
+.ms-List-itemOwner .pickerInput_4fe0caaf {
+    height:30px !important;
+}
+.itemSections {
+    width: 20% !important;
+    float: left !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+    .itemSections:hover {
+        width: 20% !important;
+        float: left !important;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+.itemOwner {
+    width: 170px !important;
+    float: left !important;
+}
+
+.itemStatus {
+    float: left !important;
+    width: 330px !important;
+}
+
+.itemLastUpdated {
+    width: 125px !important;
+    float: left !important;
+}
+
+.ms-List-itemSections {
+    width: 150px !important;
+    float: left !important;
+}
+
+.ms-List-itemOwner {
+    width: 170px !important;
+    float: left;
+}
+
+.ms-List-itemStatus {
+    float: left !important;
+    width: 330px;
+}
+
+.ms-List-itemLastUpdated {
+    width: 125px !important;
+    float: left;
+}
+
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 0px;
+    }
+}
+
+
+
+@media all and (max-width: 699px) and (min-width: 0px) {
+    .rootIsHorizontalConstrained_a0d2d5ce {
+        overflow-x: auto !important;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+    }
+    .TopLeftArrow {
+        display: none;
+    }
+
+    .TopRightArrow {
+        display: none;
+    }
+
+
+    .BottomLeftArrow {
+        display: none;
+    }
+
+    .BottomRightArrow {
+        display: none;
+    }
+
+    .bg-grey {
+        width: 100%;
+    }
+
+    .newOpBg {
+        background: none;
+    }
+
+    .TeamMembersBG {
+        position: relative;
+        bottom: 0;
+        top: 0;
+        right: 0;
+    }
+
+    .pageheading {
+        color: #3aafd9;
+        padding-bottom: 0px;
+        padding-top: 30px;
+    }
+
+    .createButton {
+        padding-top: 45px;
+        padding-bottom: 0px;
+    }
+
+    .TeamsBGnew {
+        margin-top: 15px;
+    }
+
+    .pagesubheading {
+        padding-top: 40px;
+    }
+
+    .none {
+        display: none;
+    }
+
+    .mainpanel {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        top: 64px;
+        left: 0;
+    }
+    .ms-List-th-itemState {
+        width: 11% !important;
+        float: right !important;
+    }
+
+    .ms-List-th-itemClient {
+        width: 23% !important;
+        float: left !important;
+    }
+    .rootIsHorizontalConstrained_f77b8aa8 {
+        overflow-x: scroll !important;
+        overflow-y: visible !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    .OpportunityDelete {
+        display: none;
+    }
+
+    .rootIsHorizontalConstrained_8eab4ccb {
+        overflow-x: scroll !important;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+    }
+    /* Index CSS Responsive merge */
+
+    .Caption h2 {
+        font-size: 2em;
+    }
+
+    .BgImage {
+        height: 100%;
+        width: 100%;
+        background: #000;
+        background-size: cover;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .Loading-spinner {
+        position: absolute;
+        top: 30px;
+        text-align: center;
+        left: 26%;
+        background-color: none;
+        padding: 20px;
+    }
+
+    .Caption {
+        margin-top: 35%;
+        text-align: center;
+        width: 100%;
+        line-height: 1.3em;
+        color: #fff;
+        background-color: #000;
+        padding: 15px;
+    }
+}

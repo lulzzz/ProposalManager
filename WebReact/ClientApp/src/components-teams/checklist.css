@@ -1,0 +1,52 @@
+﻿.flao06b {
+	box-sizing: border-box;
+	flex: 1 1 auto;
+	overflow: visible !important;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.rootIsHorizontalConstrained_f77b8aa8 {
+	overflow-x: visible !important;
+	overflow-y: visible;
+	-webkit-overflow-scrolling: touch;
+}
+
+.f1qkir8v {
+    padding-left: 1em !important;
+    padding-top: 0px !important;
+}
+
+.Filearea {
+    width: 428px !important; 
+}
+.textboxAlignament {
+    width: 279px !important;
+}
+.iteamheader {
+    width: 278px !important;
+}
+.TextBoxAlignment {
+    width:150px !important;
+}
+.textBoxHeader {
+    width: 134px !important;
+}
+.ms-DetailsHeader {
+    background: #3aafd9 !important;
+    color: #000 !important;
+    border: 2px solid #3aafd9;
+}
+
+@media all and (max-width: 699px) and (min-width: 0px) {
+    .Filearea {
+        width: auto !important;
+    }
+    .ms-DetailsHeader {
+        background: #3aafd9 !important;
+        color: #000 !important;
+        border: 2px solid #3aafd9;
+        width: 248%;
+        float: left;
+    }
+}

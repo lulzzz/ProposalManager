@@ -1,0 +1,147 @@
+{  
+   "id":"",
+   "displayName":"OpptestH21",
+   "reference":"",
+   "version":"",
+   "opportunityState":2,
+   "customer":{  
+      "id":"",
+      "displayName":"cust2",
+      "referenceId":""
+   },
+   "dealSize":2300,
+   "annualRevenue":32000,
+   "openedDate":"2018-06-17T23:57:54.238+05:30",
+   "industry":{  
+      "id":"35",
+      "name":"Industry1"
+   },
+   "region":{  
+      "id":"14",
+      "name":"region1"
+   },
+   "margin":1,
+   "rate":2.5,
+   "debtRatio":2,
+   "purpose":"none",
+   "disbursementSchedule":"10th of every month",
+   "collateralAmount":10,
+   "guarantees":"none",
+   "riskRating":3,
+   "teamMembers":[  
+     
+      {  
+         "id":"03e871c9-a5c4-4f49-be4b-33484389b35b",
+         "displayName":"Jin Kobayashi",
+         "mail":"Jin@onterawe.onmicrosoft.com",
+         "userPrincipalName":"Jin@onterawe.onmicrosoft.com",
+         "title":"",
+         "status":3,
+         "assignedRole":{  
+            "id":"7ccb7fc8-f5db-4cf2-899a-7187639c1270",
+            "displayName":"RelationshipManager",
+            "adGroupName":"Relationship Manager"
+         }
+      },
+     
+     
+      {  
+         "id":"018ce842-7af3-4453-afb2-3b86468b9de7",
+         "displayName":"Terawe Solutions",
+         "mail":"admin@onterawe.onmicrosoft.com",
+         "userPrincipalName":"admin@onterawe.onmicrosoft.com",
+         "title":"",
+         "status":1,
+         "assignedRole":{  
+            "id":"b96be63e-84c0-4d2f-a06b-996b6e1e7d6d",
+            "displayName":"LoanOfficer",
+            "adGroupName":"Loan Officer"
+         }
+      },
+     
+     
+   ],
+   "notes":[  
+      {  
+         "id":"40a353cc-af97-4e73-8d71-3ab2a662f1b9",
+         "noteBody":"notes1",
+         "createdDateTime":"0001-01-01T05:30:00+05:30",
+         "createdBy":{  
+            "id":"",
+            "displayName":"",
+            "mail":"",
+            "userPrincipalName":"",
+            "title":"",
+            "userRoles":[  
+
+            ]
+         }
+      }
+   ],
+   "checklists":[  
+      {  
+         "id":"Checklist_Risk_Assessment",
+         "checklistChannel":"Risk Assessment",
+         "checklistStatus":0,
+         "checklistTaskList":[  
+
+         ]
+      },
+      {  
+         "id":"Checklist_Credit_Check",
+         "checklistChannel":"Credit Check",
+         "checklistStatus":0,
+         "checklistTaskList":[  
+
+         ]
+      },
+      {  
+         "id":"Compliance",
+         "checklistChannel":"Compliance",
+         "checklistStatus":0,
+         "checklistTaskList":[  
+
+         ]
+      }
+   ],
+   "proposalDocument":{  
+      "content":{  
+         "proposalSectionList":[  
+
+         ]
+      },
+      "id":"",
+      "contentType":null,
+      "displayName":"",
+      "reference":"",
+      "version":"1.0",
+      "documentUri":"",
+      "notes":[  
+
+      ],
+      "category":{  
+         "id":"",
+         "name":""
+      },
+      "tags":""
+   },
+   "customerDecision":{  
+      "id":"",
+      "approved":false,
+      "approvedDate":"0001-01-01T05:30:00+05:30",
+      "loanDisbursed":"0001-01-01T05:30:00+05:30"
+   },
+   "documentAttachments":[  
+      {  
+         "id":"ed75d885-d173-4612-b613-61d94f00334d",
+         "fileName":"OppObject.txt",
+         "note":"notes2",
+         "category":{  
+            "id":"2",
+            "name":""
+         },
+         "tags":"tag1",
+         "documentUri":""
+      }
+   ]
+}

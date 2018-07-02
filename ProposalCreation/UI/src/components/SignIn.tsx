@@ -102,7 +102,7 @@ export class SignIn extends React.Component<IProgressProps, IProgressState>
                 if(error)
                 {
                     return <div className='ms-fontSize-m' style={{paddingBottom:'10px'}}>
-                            <span>An error ocurred during the user sign in:</span> <br/>
+                            <span>An error occurred during the user sign in:</span> <br/>
                             <span>{error}</span>
                         </div>;
                 }

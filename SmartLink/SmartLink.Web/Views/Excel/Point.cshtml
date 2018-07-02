@@ -1,0 +1,491 @@
+﻿@{
+	Layout = null;
+}
+@model SmartLink.Web.ViewModel.AuthModel
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>Point</title>
+	<script src="../../Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+
+	<link href="../../Content/Office.css" rel="stylesheet" type="text/css" />
+	<script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.js" type="text/javascript"></script>
+	<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.17/js/adal.min.js"></script>
+	<script src="https://statics.teams.microsoft.com/sdk/v1.0/js/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+	<link href="../../Content/fabric.min.css" rel="stylesheet" type="text/css" />
+	<link href="../../Content/fabric.components.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- To enable offline debugging using a local reference to Office.js, use:                        -->
+	<!-- <script src="../../Scripts/Office/MicrosoftAjax.js" type="text/javascript"></script>  -->
+	<!-- <script src="../../Scripts/Office/1/office.js" type="text/javascript"></script>  -->
+
+	<script>
+		var timestamp = Math.random();
+		var config = {
+					tenant: "@Model.TenantId",
+					clientId: "@Model.ApplicationId"
+		};
+
+		document.write("<link href='../../Content/App.css?t=" + timestamp + "' rel='stylesheet' type='text/css' />");
+		document.write("<script src='../../Scripts/App/App.js?t=" + timestamp + "' type='text/javascript'></s" + "cript>");
+		document.write("<script src='../../Scripts/App/Excel/Point.js?t=" + timestamp + "' type='text/javascript'></s" + "cript>");
+	</script>
+</head>
+<body>
+	<div class="loading-login" id="dvLogin">
+		<div class="ms-Spinner-label circle-label">
+			Loading...
+		</div>
+		<div class="circle-Loading">
+		</div>
+	</div>
+
+	<div id="excel-addin" class="main manage" style="display:none">
+		<!--Header-->
+		<div class="header">
+			<div class="nav-header">
+				<a class="n-back" href="javascript:" title="Back">
+					<i></i>
+					<span class="n-name-add">Add Source Point</span>
+					<span class="n-name-edit">Edit Source Point</span>
+					<span class="n-name-clone">Clone Files & Points</span>
+				</a>
+				<a class="n-add" href="javascript:" title="Add"><i></i><span>Add</span></a>
+				<a class="n-bulk" href="javascript:" title="Bulk Add"><i></i><span>Bulk Add</span></a>
+				<a class="n-publishall" href="javascript:" title="Publish All"><i></i><span>Publish All</span></a>
+				<a class="n-refresh" href="javascript:" title="Refresh All"><i></i><span>Refresh All</span></a>
+				<a class="n-publish" href="javascript:" title="Publish"><i></i><span>Publish</span></a>
+				<a class="n-delete" href="javascript:" title="Delete"><i></i><span>Delete</span></a>
+				<a class="n-more" href="javascript:" title="More"><i></i></a>
+
+			</div>
+			<div class="more-menu">
+				<a class="n-publish" href="javascript:" title="Publish"><i></i><span>Publish</span></a>
+				<a class="n-delete" href="javascript:" title="Delete"><i></i><span>Delete</span></a>
+			</div>
+			<div class="clone-header">
+				<div class="title">
+					<i class="ms-Icon ms-Icon--Folder"></i>
+					<span id="sourceFolderName"></span>
+					<i class="ms-Icon right-arrow"></i>
+					<i class="ms-Icon ms-Icon--Folder"></i>
+					<span id="destFolderName"></span>
+				</div>
+				<hr />
+			</div>
+			<!--Message begin-->
+			<div id="innerMessageBox" class="ms-MessageBar">
+				<div class="ms-MessageBar-content">
+					<div class="ms-MessageBar-icon">
+						<i id="innerMessageIcon" class="ms-Icon"></i>
+					</div>
+					<div id="innerMessageText" class="ms-MessageBar-text">
+					</div>
+				</div>
+			</div>
+			<!--Message end-->
+
+			<div class="content-header">
+				<div class="add-header">
+					<div class="source-type-block">
+						<div class="ms-Pivot p-classify">
+							<ul class="ms-Pivot-links point-types-add">
+								<li class="ms-Pivot-link is-selected" data-content="Points" title="Points" tabindex="1">
+									<span>Point</span>
+								</li>
+								<li class="ms-Pivot-link " data-content="Charts" title="Charts" tabindex="1">
+									<span>Chart</span>
+								</li>
+								<li class="ms-Pivot-link " data-content="Tables" title="Tables" tabindex="1">
+									<span>Table</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--
+					<div class="add-point-nav">
+						<a href="javascript:">Point</a><a href="javascript:">Table</a><a href="javascript:">Chart</a>
+					</div>
+					<div class="add-point-nav-content">
+						<div>
+							<h3 class="title-add" title="Add Source Point">Add: Source Point</h3>
+							<h3 class="title-edit" title="Edit Source Point">Edit: Source Point</h3>
+						</div>
+						<div>
+							<h3 class="title-add" title="Add Source Point">Add: Source Table</h3>
+							<h3 class="title-edit" title="Edit Source Point">Edit: Source Table</h3>
+						</div>
+						<div>
+							<h3 class="title-add" title="Add Source Point">Add: Source Chart</h3>
+							<h3 class="title-edit" title="Edit Source Point">Edit: Source Chart</h3>
+						</div>
+					</div>
+					<div class="btnWrapper">
+						<button id="btnCancel">Cancel</button>
+						<button id="btnSave">Save</button>
+					</div>-->
+				</div>
+
+				<div class="manage-header">
+					<div class="manage-title">
+						<span>Manage Source Points</span>
+						<div>
+							<a href="javascript:" id="btnMoveUp" title="Up" class="disabled"><i class="ms-Icon ms-Icon--CaretUpSolid8"></i></a>
+							<a href="javascript:" id="btnMoveDown" title="Down" class="disabled"><i class="ms-Icon ms-Icon--CaretDownSolid8"></i></a>
+						</div>
+					</div>
+					<div class="search">
+						<div class="s-input">
+							<div>
+								<input type="text" id="txtSearchSourcePoint" data-default="Search by Source Point Name" />
+								<ul id="autoCompleteWrap2" class="search-tooltips"></ul>
+							</div>
+						</div>
+						<div class="s-label">
+							<i id="iSearchSourcePoint" class="ms-Icon ms-Icon--Search"></i>
+						</div>
+					</div>
+
+					<div class="source-type-block">
+						<div class="ms-Pivot p-classify">
+							<ul class="ms-Pivot-links point-types-mana">
+								<li class="ms-Pivot-link is-selected" data-content="Points" title="Points" tabindex="1">
+									<span>Points(</span><span>0</span><span>)</span>
+								</li>
+								<li class="ms-Pivot-link " data-content="Charts" title="Charts" tabindex="1">
+									<span>Charts(</span><span>0</span><span>)</span>
+								</li>
+								<li class="ms-Pivot-link " data-content="Tables" title="Tables" tabindex="1">
+									<span>Tables(</span><span>0</span><span>)</span>
+								</li>
+							</ul>
+						</div>
+						<div class="content-right">
+							<div class="error-point-filter">
+								<div class="ckb-wrapper error-point">
+									<input type="checkbox" />
+									<i class="ms-Icon ms-Icon--CheckMark"></i>
+								</div>
+								<label>errors</label>
+							</div>
+							<div class="resort">
+								<i class="ms-Icon ms-Icon--Sort"></i>
+								<span>Reset sort</span>
+							</div>
+						</div>
+					</div>
+
+					<ul id="headerListPoints" class="point-list">
+						<li class="point-header">
+							<div class="point-header-line">
+								<div class="i1">
+									<div class="ckb-wrapper all">
+										<input type="checkbox" />
+										<i class="ms-Icon ms-Icon--CheckMark"></i>
+									</div>
+								</div>
+								<div class="i2 sort-asc"><span>Source Point</span><i class="ms-Icon ms-Icon--Down"></i><i class="ms-Icon ms-Icon--Up"></i></div>
+								<div class="i3"><span>Published Status</span><i class="ms-Icon ms-Icon--Down"></i><i class="ms-Icon ms-Icon--Up"></i></div>
+								<div class="i4"><span>Document Value</span><i class="ms-Icon ms-Icon--Down"></i><i class="ms-Icon ms-Icon--Up"></i></div>
+								<div class="i5"></div>
+							</div>
+						</li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+
+		<!--Footer-->
+		<div class="footer">
+			<i class="f-logo"><img src="../../Images/logo-s-front.png" /></i><span>Smart Link</span>
+			<i class="ms-Icon ms-Icon--Settings f-settings"></i>
+		</div>
+		<div class="settings">
+			<ul>
+				<li>
+					<a href="javascript:" class="s-username"></a>
+					<a href="javascript:" class="s-email"></a>
+				</li>
+				<li><a class="s-cloning" href="javascript:" title="Clone Folder">Cloning</a></li>
+				<li><a class="s-signout" href="../Account/SignOut" title="Sign Out">Sign out</a></li>
+			</ul>
+			<i class="ms-Icon ms-Icon--Settings s-settings"></i>
+		</div>
+
+		<div class="outer-container">
+			<div class="inner-container">
+				<div class="elements">
+					<!--Content-->
+
+					<div class="content add-point">
+						<div class="point-single">
+							<div class="point-item input-wrapper source-name">
+								<label>Source Point Name<em>*</em></label>
+								<div class="select-range">
+									<input type="text" id="txtName" />
+									<a href="javascript:" id="btnSelectName" title="Select source point name">
+										<i class="ms-Icon ms-Icon--Table"></i>
+									</a>
+								</div>
+							</div>
+							<div class="point-item input-wrapper">
+								<label>Select range:<em>*</em></label>
+								<div class="select-range">
+									<input type="text" id="txtLocation" />
+									<a href="javascript:" id="btnLocation" title="Select range">
+										<i class="ms-Icon ms-Icon--Table"></i>
+									</a>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="point-chart">
+							<div class="point-item input-wrapper source-name">
+								<label>Source Chart Title<em>*</em></label>
+								<div>
+									<input type="text" id="txtChartName" />
+								</div>
+							</div>
+							<div class="point-item input-wrapper">
+								<label>Select Chart<em>*</em></label>
+								<div class="select-chart">
+									<input type="text" id="txtChartLocation" value="" />
+									<a href="javascript:" id="btnChartLocation">
+										<i class="ms-Icon ms-Icon--ChevronDown"></i>
+									</a>
+									<ul class="chart-list" id="chartList"></ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="point-table">
+							<div class="point-item input-wrapper source-name">
+								<label>Source Table Title<em>*</em></label>
+								<div>
+									<input type="text" id="txtTableTitle" />
+								</div>
+							</div>
+							<div class="point-item input-wrapper">
+								<label>Source Table Range<em>*</em></label>
+								<div class="select-range">
+									<input type="text" id="txtTableLocation" />
+									<a href="javascript:" id="btnTableLocation" title="Select range">
+										<i class="ms-Icon ms-Icon--Table"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<hr />
+						<div class="btnWrapper">
+							<button class="ms-Button" id="btnCancel">
+								<span class="ms-Button-label">Cancel</span>
+							</button>
+							<button class="ms-Button ms-Button--primary" id="btnSave">
+								<span class="ms-Button-label">Save</span>
+							</button>
+						</div>
+
+						<div class="point-associated">
+							<div>Files associated with this Source Point:</div>
+							<ul id="listAssociated"></ul>
+						</div>
+					</div>
+					<div class="content clone-point">
+						<div class="clone-item clone-point-first">
+							<h4 class="height-item">Source folder</h4>
+							<div class="point-item">
+								<div class="clone-browse">
+									<input type="text" id="txtSourceFolder" disabled="disabled" data-default='Click Browse to select a source folder' />
+									<button class="ms-Button" id="btnOpenSourceFolder">
+										<span class="ms-Button-label">Browse</span>
+									</button>
+								</div>
+							</div>
+
+							<h4></h4>
+							<h4 class="height-item">Destination folder</h4>
+							<div class="point-item">
+								<div class="clone-browse">
+									<input type="text" id="txtDestinationFolder" disabled="disabled" data-default='Click Browse to select a destination folder' />
+									<button id="btnOpenDestinationFolder" class="ms-Button">
+										<span class="ms-Button-label">Browse</span>
+									</button>
+								</div>
+							</div>
+							<hr />
+							<div class="point-item last">
+								<button class="ms-Button" id="btnCloneNext">
+									<span class="ms-Button-label">Next</span>
+								</button>
+							</div>
+							<div class="clear"></div>
+						</div>
+
+
+						<div class="clone-item clone-point-third">
+							<span class="third-title">Files to be cloned:</span>
+							<ul class="clone-list" id="listWillClone"></ul>
+							<span class="third-title last">Files not to be cloned:</span>
+							<span class="third-subtitle">These files do not have any SmartLink information.</span>
+							<ul class="clone-list" id="listWillNotClone"></ul>
+							<hr />
+							<div class="point-item last">
+								<button class="ms-Button" id="btnCloneCancel">
+									<span class="ms-Button-label">Cancel</span>
+								</button>
+								<button class="ms-Button" id="btnClone">
+									<span class="ms-Button-label">Clone</span>
+								</button>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="clone-item clone-point-fourth">
+							<div class="ms-MessageBar ms-MessageBar--success">
+								<div class="ms-MessageBar-content">
+									<div class="ms-MessageBar-icon">
+										<i class="ms-Icon ms-Icon--Completed"></i>
+									</div>
+									<div class="ms-MessageBar-text">
+										Cloning is complete
+									</div>
+								</div>
+							</div>
+							<div class="clone-done-success">
+								<span class="third-title">Files successfully cloned:</span>
+								<ul class="clone-list" id="listDoneSuccess"></ul>
+								<div class="clear"></div>
+							</div>
+							<div class="ms-MessageBar ms-MessageBar--error">
+								<div class="ms-MessageBar-content">
+									<div class="ms-MessageBar-icon">
+										<i class="ms-Icon ms-Icon--ErrorBadge"></i>
+									</div>
+									<div class="ms-MessageBar-text">
+										Files unable to be cloned due to: Files already exist.
+									</div>
+								</div>
+							</div>
+							<div class="clone-done-fail">
+								<span class="third-title">Files unable to be cloned:</span>
+								<ul class="clone-list" id="listDoneFail"></ul>
+							</div>
+
+							<hr />
+							<div class="point-item last">
+								<button class="ms-Button ms-Button--primary" id="btnCloneDone">
+									<span class="ms-Button-label">Done</span>
+								</button>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="content manage-point">
+						<ul id="listPoints" class="point-list"></ul>
+						<div class="clear"></div>
+						<div id="pager" class="pager">
+							<div>
+								<a class="disabled" id="pagerPrev" href="javascript:"><i class="ms-Icon ms-Icon--TriangleSolidLeft12"></i></a>
+								<span id="indexes"></span>
+								<a class="disabled" id="pagerNext" href="javascript:"><i class="ms-Icon ms-Icon--TriangleSolidRight12"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="content document-error">
+						<p>Load document ID failed.</p>
+						<span id="lblDocumentIDError"></span>
+						<a id="btnDocumentIDReload" href="javascript:">Click to reload document ID</a>
+					</div>
+
+
+					<div id="popupMain" class="popups">
+						<div class="bg"></div>
+						<div id="popupMessage" class="popup">
+							<!--<div class="success-wrapper">
+								<i></i>
+								<span id="lblSuccessMessage"></span>
+							</div>-->
+							<div id="popupErrorMain" class="error-wrapper">
+								<h5>Error</h5>
+								<h6 id="lblErrorTitle"></h6>
+								<ul id="lblErrorMessage"></ul>
+								<h6 id="lblErrorRepair"></h6>
+								<button id="btnErrorOK">OK</button>
+							</div>
+						</div>
+						<div id="popupProcessing" class="popup processing">
+							<i></i>
+						</div>
+						<div id="popupConfirm" class="popup">
+							<!--<div>
+								<div id="lblConfirmTitle"></div>
+								<button id="btnYes">Yes</button>
+								<button id="btnNo">No</button>
+							</div>-->
+							<div class="ms-Dialog">
+								<div class="ms-Dialog-title" id="lblConfirmTitle"></div>
+								<div class="ms-Dialog-content">
+									<p class="ms-Dialog-subText" id="confirmMessage"></p>
+								</div>
+								<div class="ms-Dialog-actions">
+									<button id="btnYes" class="ms-Button ms-Dialog-action ms-Button--primary">
+										<span class="ms-Button-label">Yes</span>
+									</button>
+									<button id="btnNo" class="ms-Button ms-Dialog-action">
+										<span class="ms-Button-label">No</span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div id="popupBrowse" class="popup">
+							<div>
+								<div class="browse-file">
+									<div class="browse-filter">
+										<div>
+											<a href="javascript:" id="btnBrowseBack">&lt;&lt; Back</a>
+											<i id="btnBrowseCancel"></i>
+											<a href="javascript:" class="browse-newfolder-action" id="btnNewFolder"><i></i><span>New Folder</span></a>
+										</div>
+										<span><i></i>Select folder to clone</span>
+									</div>
+									<div class="browse-content">
+										<ul id="browseList"></ul>
+										<div class="browse-newfolder">
+											<label>Folder Name:</label>
+											<input id="txtNewFolderName" />
+											<div>
+												<button id="btnCreateNewFolder">Create</button>
+											</div>
+											<div id="browseNewFolderMessage">
+											</div>
+										</div>
+									</div>
+									<div class="browse-message" id="txtBrowseMessage">
+									</div>
+									<div class="browse-button" id="wrapBrowseOK">
+										<button id="btnBrowseOK">OK</button>
+									</div>
+								</div>
+								<div class="loading" id="popBrowseLoading">
+									<div class="loading-bg"></div>
+									<i></i>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
+
+

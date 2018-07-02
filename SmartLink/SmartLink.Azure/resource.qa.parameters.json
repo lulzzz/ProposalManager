@@ -1,0 +1,39 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "hostingPlanName": {
+            "value": "propmgtsmartlink"
+        },
+        "administratorLogin": {
+            "value": "smartlink"
+        },
+      "databaseName": {
+        "value": "smartlink"
+      },
+        "skuName": {
+            "value": "F1"
+        },
+        "administratorLoginPassword": {
+            "value": "Pa$$w0rd1"
+        },
+        "webSiteName": {
+            "value": "propmgtsmartlink"
+        },
+        "sqlserverName": {
+            "value": "propmgtsmartlink"
+        },
+        "storageAccountName": {
+            "value": "propmgtsmartlink"
+        },
+        "edition": {
+            "value": "Basic"
+        },
+        "requestedServiceObjectiveName": {
+            "value": "Basic"
+        },
+      "appInsightName": {
+        "value": "propmgtsmartlinkdev"
+      }
+    }
+}

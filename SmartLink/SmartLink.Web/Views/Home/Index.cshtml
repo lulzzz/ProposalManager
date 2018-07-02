@@ -1,0 +1,95 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="viewport" content="width=device-width" />
+	<title></title>
+	<script src="../../Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+
+	<link href="../../Content/Office.css" rel="stylesheet" type="text/css" />
+	<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
+	<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.17/js/adal.min.js"></script>
+	
+	<link href="../../Content/fabric.min.css" rel="stylesheet" type="text/css" />
+	<link href="../../Content/fabric.components.min.css" rel="stylesheet" type="text/css" />
+	<script>
+		var timestamp = Math.random();
+		document.write("<link href='../../Content/App.css?t=" + timestamp + "' rel='stylesheet' type='text/css' />");
+		document.write("<script src='../../Scripts/App/SignIn.js?t=" + timestamp + "' type='text/javascript'></s" + "cript>");
+	</script>
+</head>
+<body>
+    <div class="main sign-in">
+        <div class="outer-container">
+            <div class="inner-container">
+                <div class="elements">
+                    <div class="logo">
+                        <i></i>
+                    </div>
+                    <div class="sign-in-btn">
+                        <button class="ms-Button ms-Button--primary" id="btnSignIn">
+                            <span class="ms-Button-label">Login</span>
+                        </button>
+                    </div>
+                    <div class="loading-login">
+                        <div class="ms-Spinner-label circle-label">
+                            Loading...
+                        </div>
+                        <div class="circle-Loading">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="error-message">
+        <div class="excel">
+            <div class="mode">
+                <div>
+                    <div>The add-ins need to open in the excel from SharePoint site. Please close current open excel file and follow the instructions below:</div>
+                    <div>1. Login O365 site where the excel documents are stored.</div>
+                    <div>2. Select the excel file and click "Open in Excel" link.</div>
+                    <img src="../../Images/mode-excel.png" />
+                </div>
+            </div>
+            <div class="version">
+                <div>
+                    <div>The version of the client excel should be 2016 or higher.</div>
+                </div>
+            </div>
+        </div>
+        <div class="word">
+            <div class="mode">
+                <div>
+                    <div>The add-ins need to open in the word from SharePoint site. Please close current open word file and follow the instructions below:</div>
+                    <div>1. Login O365 site where the word documents are stored.</div>
+                    <div>2. Select the word file and click "Open in Word" link.</div>
+                    <img src="../../Images/mode-word.png" />
+                </div>
+            </div>
+            <div class="version">
+                <div>
+                    <div>The version of the client word should be 2016 or higher.</div>
+                </div>
+            </div>
+        </div>
+        <div class="powerpoint">
+            <div class="mode">
+                <div>
+                    <div>The add-ins need to open in the power point from SharePoint site. Please close current open power point file and follow the instructions below:</div>
+                    <div>1. Login O365 site where the power point are stored.</div>
+                    <div>2. Select the power point file and click "Open in PowerPoint" link.</div>
+                    <img src="../../Images/mode-powerpoint.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

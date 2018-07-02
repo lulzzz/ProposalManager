@@ -1,0 +1,11 @@
+﻿{
+  "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
+  "WebJobs": [
+    {
+      "filePath": "../SmartLink.WebJob/SmartLink.WebJob.csproj"
+    },
+    {
+      "filePath": "../SmartLink.DocumentWebJob/SmartLink.DocumentWebJob.csproj"
+    }
+  ]
+}

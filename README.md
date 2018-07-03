@@ -1,4 +1,7 @@
 
+This repository has two branches – main and officeaddin. 
+Please refer to https://github.com/OfficeDev/ProposalManager/blob/master/Proposal_Manager_Getting_Started_Guide.docx to get started. 
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a

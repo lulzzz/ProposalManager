@@ -588,7 +588,47 @@ namespace Infrastructure.Services
             {
                 Guard.Against.Null(opportunity, "OpportunityRepository_UpdateUsersAsync opportunity is null", requestId);
 
+                var usersList = (await _userProfileRepository.GetAllAsync(requestId)).ToList();
+                var teamMembers = opportunity.Content.TeamMembers.ToList();
+                var updatedTeamMembers = new List<TeamMember>();
                 
+                foreach (var item in teamMembers)
+                {
+                    var updatedItem = TeamMember.Empty;
+                    updatedItem.Id = item.Id;
+                    updatedItem.DisplayName = item.DisplayName;
+                    updatedItem.Status = item.Status;
+                    updatedItem.AssignedRole = item.AssignedRole;
+                    updatedItem.Fields = item.Fields;
+
+                    var currMember = usersList.Find(x => x.Id == item.Id);
+
+                    if (currMember != null)
+                    {
+                        updatedItem.DisplayName = currMember.DisplayName;
+                        updatedItem.Fields = TeamMemberFields.Empty;
+                        updatedItem.Fields.Mail = currMember.Fields.Mail;
+                        updatedItem.Fields.Title = currMember.Fields.Title;
+                        updatedItem.Fields.UserPrincipalName = currMember.Fields.UserPrincipalName;
+
+                        var hasAssignedRole = currMember.Fields.UserRoles.Find(x => x.DisplayName == item.AssignedRole.DisplayName);
+
+                        if (opportunity.Metadata.OpportunityState == OpportunityState.InProgress && hasAssignedRole != null)
+                        {
+                            updatedTeamMembers.Add(updatedItem);
+                        }
+                    }
+                    else
+                    {
+                        if (opportunity.Metadata.OpportunityState != OpportunityState.InProgress)
+                        {
+                            updatedTeamMembers.Add(updatedItem);
+                        }
+                    }
+                }
+                opportunity.Content.TeamMembers = updatedTeamMembers;
+
+                // TODO: Also update other users in opportunity like notes which has owner nd maps to a user profile
 
                 return opportunity;
             }

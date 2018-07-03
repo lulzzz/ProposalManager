@@ -122,6 +122,7 @@ namespace Infrastructure.GraphApi
                 }
 
                 var requestUrl = $"{_appOptions.GraphRequestUrl}groups{requestOptions}";
+                _logger.LogInformation($"RequestId: {requestId} - GetGroupAsync requestUrl: {requestUrl}");
 
                 // Create the request message and add the content.
                 HttpRequestMessage hrm = new HttpRequestMessage(HttpMethod.Get, requestUrl);

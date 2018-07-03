@@ -17,7 +17,7 @@ import { Image } from 'office-ui-fabric-react/lib/Image';
 import { AppSettings } from './helpers/AppSettings';
 import { Layout } from './components/Layout';
 import { Opportunities } from './components/Opportunities';
-import { Notifications } from './components/Notifications';
+//import { Notifications } from './components/Notifications';
 import { Administration } from './components/Administration/Administration';
 import { Settings } from './components/Administration/Settings';
 
@@ -205,9 +205,9 @@ export class AppBrowser extends Component {
 			return <Opportunities userProfile={userProfileData} />;
 		};
 
-		const NotificationsView = ({ match }) => {
-			return <Notifications userProfile={userProfileData} />;
-		};
+		//const NotificationsView = ({ match }) => {
+			//return <Notifications userProfile={userProfileData} />;
+		//};
 
 		const AdministrationView = ({ match }) => {
 			return <Administration userProfile={userProfileData} />;
@@ -260,7 +260,7 @@ export class AppBrowser extends Component {
 						isAuthenticated ?
                             <Layout userProfile={userProfileData}>
 								<Route exact path='/' component={OpportunitiesView} />
-								<Route exact path='/Notifications' component={NotificationsView} />
+								
                                 <Route exact path='/Administration' component={AdministrationView} />
                                 <Route exact path='/Settings' component={SettingsView} />
 

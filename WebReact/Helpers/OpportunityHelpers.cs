@@ -484,16 +484,11 @@ namespace WebReact.Helpers
                 if (entity.Content.TeamMembers == null) entity.Content.TeamMembers = new List<TeamMember>();
                 if (viewModel.TeamMembers != null)
                 {
-                    // LIST: Content/TeamMembers
-                    var updatedTeamMembers = entity.Content.TeamMembers.ToList();
+                    var updatedTeamMembers = new List<TeamMember>();
+
+                    // Update team members
                     foreach (var item in viewModel.TeamMembers)
                     {
-                        var curTeamMember = updatedTeamMembers.Find(x => x.AssignedRole.DisplayName == item.AssignedRole.DisplayName && x.Id == item.Id);
-                        if (curTeamMember != null)
-                        {
-                            updatedTeamMembers.Remove(curTeamMember);
-                        }
-
                         updatedTeamMembers.Add(await TeamMemberToEntityAsync(item));
                     }
                     entity.Content.TeamMembers = updatedTeamMembers;

@@ -47,8 +47,6 @@ namespace ApplicationCore
 
         public int UserProfileCacheExpiration { get; set; }
 
-        public string TeamsBotName { get; set; }
-
         public string MicrosoftAppId { get; set; }
 
         public string MicrosoftAppPassword { get; set; }
@@ -60,5 +58,7 @@ namespace ApplicationCore
         public string BotName { get; set; }
 
         public string BotId { get; set; }
+
+        public string TeamsAppInstanceId { get; set; }
     }
 }

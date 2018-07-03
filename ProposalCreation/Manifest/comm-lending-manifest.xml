@@ -9,7 +9,7 @@
   <!-- Begin Basic Settings: Add-in metadata, used for all versions of Office unless override provided. -->
 
   <!-- IMPORTANT! Id must be unique for your add-in, if you reuse this manifest ensure that you change this id to a new GUID. -->
-  <Id>7467ac93-bea7-46b1-8338-790526485060</Id>
+  <Id>NEW_GUID</Id>
 
   <!--Version. Updates from the store only get triggered if there is a version change. -->
   <Version>1.0.0.0</Version>
@@ -20,8 +20,8 @@
   <Description DefaultValue="Proposal Creation Add in"/>
 
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
-  <IconUrl DefaultValue="https://proposalcreationweb.azurewebsites.net/dist/assets/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="https://proposalcreationweb.azurewebsites.net/dist/assets/icon-80.png"/>
+  <IconUrl DefaultValue="https://<PROPOSAL_CREATION_URL>/dist/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://<PROPOSAL_CREATION_URL>/dist/assets/icon-80.png"/>
 
   <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
   <!--<SupportUrl DefaultValue="[Insert the URL of a page that provides support information for the app]">-->
@@ -30,7 +30,7 @@
   <AppDomains>
      <AppDomain>https://login.windows.net</AppDomain>
       <AppDomain>https://login.microsoftonline.com</AppDomain>
-      <AppDomain>https://proposalcreationweb.azurewebsites.net</AppDomain>
+      <AppDomain>https://<PROPOSAL_CREATION_URL></AppDomain>
   </AppDomains>
   <!--End Basic Settings. -->
 
@@ -39,7 +39,7 @@
     <Host Name="Document" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://proposalcreationweb.azurewebsites.net" />
+    <SourceLocation DefaultValue="https://<PROPOSAL_CREATION_URL>" />
   </DefaultSettings>
   <!-- End TaskPane Mode integration.  -->
 
@@ -145,15 +145,15 @@
     <!-- You can use resources across hosts and form factors. -->
     <Resources>
       <bt:Images>
-        <bt:Image id="Contoso.tpicon_16x16" DefaultValue="https://proposalcreationweb.azurewebsites.net/dist/assets/icon-16.png" />
-        <bt:Image id="Contoso.tpicon_32x32" DefaultValue="https://proposalcreationweb.azurewebsites.net/dist/assets/icon-32.png" />
-        <bt:Image id="Contoso.tpicon_80x80" DefaultValue="https://proposalcreationweb.azurewebsites.net/dist/assets/icon-80.png" />
+        <bt:Image id="Contoso.tpicon_16x16" DefaultValue="https://<PROPOSAL_CREATION_URL>/dist/assets/icon-16.png" />
+        <bt:Image id="Contoso.tpicon_32x32" DefaultValue="https://<PROPOSAL_CREATION_URL>/dist/assets/icon-32.png" />
+        <bt:Image id="Contoso.tpicon_80x80" DefaultValue="https://<PROPOSAL_CREATION_URL>/dist/assets/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Contoso.TaskPane.Url" DefaultValue="https://proposalcreationweb.azurewebsites.net" />
-        <bt:Url id="SmartLink.TaskPane.Url" DefaultValue="https://propmgtsmartlink.azurewebsites.net/word/point" />
+        <bt:Url id="Contoso.TaskPane.Url" DefaultValue="https://<PROPOSAL_CREATION_URL>" />
+        <bt:Url id="SmartLink.TaskPane.Url" DefaultValue="https://<SMARTLINK_URL>/word/point" />
         <bt:Url id="Contoso.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
-        <bt:Url id="Contoso.DesktopFunctionFile.Url" DefaultValue="https://proposalcreationweb.azurewebsites.net/function-file/function-file.html" />
+        <bt:Url id="Contoso.DesktopFunctionFile.Url" DefaultValue="https://<PROPOSAL_CREATION_URL>/function-file/function-file.html" />
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
@@ -169,18 +169,6 @@
         <bt:String id="Contoso.GetStarted.Description" DefaultValue="Proposal Creation add-in loaded succesfully." />
       </bt:LongStrings>
     </Resources>
-    
-     <WebApplicationInfo>
-      <Id>7f908427-c81c-4a22-bf61-167500e6db56</Id>
-      <!--<Resource>api://localhost:44334/7f908427-c81c-4a22-bf61-167500e6db56</Resource>-->
-      <Resource>api://7f908427-c81c-4a22-bf61-167500e6db56</Resource>
-      <Scopes>
-        <Scope>Files.Read.All</Scope>
-        <Scope>offline_access</Scope>
-        <Scope>openid</Scope>s
-        <Scope>profile</Scope>        
-      </Scopes>
-    </WebApplicationInfo>
     </VersionOverrides>
   <!-- End Add-in Commands Mode integration. -->
 

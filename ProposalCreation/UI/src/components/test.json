@@ -1,0 +1,354 @@
+{
+    "contentType": {
+        "Name": "Opportunity",
+        "Value": 1
+    },
+    "metadata": {
+        "opportunityState": 2,
+        "customer": {
+            "typeName": "Customer",
+            "id": "",
+            "displayName": "Cust2",
+            "referenceId": ""
+        },
+        "dealSize": 1000.0,
+        "annualRevenue": 120000.0,
+        "openedDate": "2018-06-26T07:29:16.334+00:00",
+        "industry": {
+            "typeName": "Industry",
+            "id": "35",
+            "name": "Industry1"
+        },
+        "region": {
+            "typeName": "Region",
+            "id": "14",
+            "name": "region1"
+        },
+        "margin": 1.0,
+        "rate": 3.0,
+        "debtRatio": 2.0,
+        "purpose": "purpose1",
+        "disbursementSchedule": "15th of every month",
+        "collateralAmount": 10.0,
+        "guarantees": "none",
+        "riskRating": 2,
+        "opportunityChannelId": "19:6fbf706f58be4cbab725bcb88f9d7b8c@thread.skype"
+    },
+    "content": {
+        "teamMembers": [
+            {
+                "typeName": "TeamMember",
+                "displayName": "Carol Poland (Relationship Manager)",
+                "id": "03e871c9-a5c4-4f49-be4b-33484389b35b",
+                "fields": {
+                    "mail": "carolp@agilesightms.onmicrosoft.com",
+                    "userPrincipalName": "carolp@agilesightms.onmicrosoft.com",
+                    "title": "",
+                    "userRoles": []
+                },
+                "status": 0,
+                "assignedRole": {
+                    "typeName": "Role",
+                    "id": "7ccb7fc8-f5db-4cf2-899a-7187639c1270",
+                    "displayName": "RelationshipManager",
+                    "adGroupName": "Relationship Manager"
+                }
+            },
+            {
+                "typeName": "TeamMember",
+                "displayName": "Robin Colins (Loan Officer)",
+                "id": "018ce842-7af3-4453-afb2-3b86468b9de7",
+                "fields": {
+                    "mail": "admin@agilesightms.onmicrosoft.com",
+                    "userPrincipalName": "robinc@agilesightms.onmicrosoft.com",
+                    "title": "",
+                    "userRoles": []
+                },
+                "status": 0,
+                "assignedRole": {
+                    "typeName": "Role",
+                    "id": "b96be63e-84c0-4d2f-a06b-996b6e1e7d6d",
+                    "displayName": "LoanOfficer",
+                    "adGroupName": "Loan Officer"
+                }
+            },
+            {
+                "typeName": "TeamMember",
+                "displayName": "Carlos Slattery (Credit Analyst)",
+                "id": "018ce842-7af3-4453-afb2-3b86468b9de7",
+                "fields": {
+                    "mail": "carloss@agilesightms.onmicrosoft.com",
+                    "userPrincipalName": "carloss@agilesightms.onmicrosoft.com",
+                    "title": "",
+                    "userRoles": []
+                },
+                "status": 0,
+                "assignedRole": {
+                    "typeName": "Role",
+                    "id": "e3794b08-9fb0-4a87-9bb5-bbb35d272d29",
+                    "displayName": "CreditAnalyst",
+                    "adGroupName": "Credit Analyst"
+                }
+            },
+            {
+                "typeName": "TeamMember",
+                "displayName": "Colin Ballinger (Legal Counsel)",
+                "id": "859e5990-c3f4-41c7-ac3c-6878dc0da9fb",
+                "fields": {
+                    "mail": "collinb@agilesightms.onmicrosoft.com",
+                    "userPrincipalName": "collinb@agilesightms.onmicrosoft.com",
+                    "title": "",
+                    "userRoles": []
+                },
+                "status": 0,
+                "assignedRole": {
+                    "typeName": "Role",
+                    "id": "a63d0cfb-8b33-43a8-a4c2-23cee651639a",
+                    "displayName": "LegalCounsel",
+                    "adGroupName": "Legal Counsel"
+                }
+            }
+        ],
+        "notes": [
+            {
+                "typeName": "Note",
+                "id": "4f41c270-f877-4cc7-91e7-4f631bcc4f13",
+                "noteBody": "Opp Notes",
+                "createdDateTime": "2018-06-26T07:31:14.5740796+00:00",
+                "createdBy": {
+                    "typeName": "UserProfile",
+                    "displayName": "Jin Kobayashi",
+                    "id": "03e871c9-a5c4-4f49-be4b-33484389b35b",
+                    "fields": {
+                        "mail": "Jin@agilesightms.onmicrosoft.com",
+                        "userPrincipalName": "Jin@agilesightms.onmicrosoft.com",
+                        "title": "",
+                        "userRoles": [
+                            {
+                                "typeName": "Role",
+                                "id": "7ccb7fc8-f5db-4cf2-899a-7187639c1270",
+                                "displayName": "RelationshipManager",
+                                "adGroupName": "Relationship Manager"
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "checklists": [
+            {
+                "typeName": "Checklist",
+                "id": "Test1",
+                "checklistChannel": "Test1",
+                "checklistStatus": 0,
+                "checklistTaskList": []
+            },
+            {
+                "typeName": "Checklist",
+                "id": "CreditCheck",
+                "checklistChannel": "Credit Check",
+                "checklistStatus": 0,
+                "checklistTaskList": []
+            },
+            {
+                "typeName": "Checklist",
+                "id": "Compliance",
+                "checklistChannel": "Compliance",
+                "checklistStatus": 0,
+                "checklistTaskList": []
+            },
+            {
+                "typeName": "Checklist",
+                "id": "RiskAssessement",
+                "checklistChannel": "Risk Assessement",
+                "checklistStatus": 0,
+                "checklistTaskList": []
+            },
+            {
+                "typeName": "Checklist",
+                "id": "UnderWriter",
+                "checklistChannel": "UnderWriter",
+                "checklistStatus": 0,
+                "checklistTaskList": []
+            }
+        ],
+        "proposalDocument": {
+            "content": {
+                "proposalSectionList": [
+                    {
+                        "typeName": "DocumentSection",
+                        "id": "2c736dce-f880-4084-a6ff-53373965066c",
+                        "displayName": "Introduction",
+                        "owner": {
+                            "typeName": "UserProfile",
+                            "displayName": "",
+                            "id": "",
+                            "fields": {
+                                "mail": "",
+                                "userPrincipalName": "",
+                                "title": "",
+                                "userRoles": []
+                            }
+                        },
+                        "sectionStatus": 1,
+                        "lastModifiedDateTime": "0001-01-01T00:00:00+00:00",
+                        "subSectionId": "",
+                        "assignedTo": {
+                            "typeName": "UserProfile",
+                            "displayName": "",
+                            "id": "",
+                            "fields": {
+                                "mail": "",
+                                "userPrincipalName": "",
+                                "title": "",
+                                "userRoles": []
+                            }
+                        },
+                        "task": ""
+                    },
+                    {
+                        "typeName": "DocumentSection",
+                        "id": "996bf2e9-8d7d-4d0d-84f2-cf17efa57a1a",
+                        "displayName": "Proposal",
+                        "owner": {
+                            "typeName": "UserProfile",
+                            "displayName": "",
+                            "id": "",
+                            "fields": {
+                                "mail": "",
+                                "userPrincipalName": "",
+                                "title": "",
+                                "userRoles": []
+                            }
+                        },
+                        "sectionStatus": 0,
+                        "lastModifiedDateTime": "0001-01-01T00:00:00+00:00",
+                        "subSectionId": "2c736dce-f880-4084-a6ff-53373965066c",
+                        "assignedTo": {
+                            "typeName": "UserProfile",
+                            "displayName": "",
+                            "id": "",
+                            "fields": {
+                                "mail": "",
+                                "userPrincipalName": "",
+                                "title": "",
+                                "userRoles": []
+                            }
+                        },
+                        "task": ""
+                    },
+                    {
+                        "typeName": "DocumentSection",
+                        "id": "e46b0444-8304-45bb-a2df-bf187d91e372",
+                        "displayName": "Requirements",
+                        "owner": {
+                            "typeName": "UserProfile",
+                            "displayName": "",
+                            "id": "",
+                            "fields": {
+                                "mail": "",
+                                "userPrincipalName": "",
+                                "title": "",
+                                "userRoles": []
+                            }
+                        },
+                        "sectionStatus": 0,
+                        "lastModifiedDateTime": "0001-01-01T00:00:00+00:00",
+                        "subSectionId": "996bf2e9-8d7d-4d0d-84f2-cf17efa57a1a",
+                        "assignedTo": {
+                            "typeName": "UserProfile",
+                            "displayName": "",
+                            "id": "",
+                            "fields": {
+                                "mail": "",
+                                "userPrincipalName": "",
+                                "title": "",
+                                "userRoles": []
+                            }
+                        },
+                        "task": ""
+                    },
+                    {
+                        "typeName": "DocumentSection",
+                        "id": "9f4903c0-7270-476b-af8d-06a983086992",
+                        "displayName": "Features",
+                        "owner": {
+                            "typeName": "UserProfile",
+                            "displayName": "",
+                            "id": "",
+                            "fields": {
+                                "mail": "",
+                                "userPrincipalName": "",
+                                "title": "",
+                                "userRoles": []
+                            }
+                        },
+                        "sectionStatus": 0,
+                        "lastModifiedDateTime": "0001-01-01T00:00:00+00:00",
+                        "subSectionId": "996bf2e9-8d7d-4d0d-84f2-cf17efa57a1a",
+                        "assignedTo": {
+                            "typeName": "UserProfile",
+                            "displayName": "",
+                            "id": "",
+                            "fields": {
+                                "mail": "",
+                                "userPrincipalName": "",
+                                "title": "",
+                                "userRoles": []
+                            }
+                        },
+                        "task": ""
+                    }
+                ]
+            },
+            "contentType": {
+                "Name": "Opportunity",
+                "Value": 1
+            },
+            "metadata": {
+                "documentUri": "https://agilesightms.sharepoint.com/sites/testH1/_layouts/15/Doc.aspx?sourcedoc=%7B8C732DAA-724D-451C-B473-727B11B43471%7D&file=SampleDocForSections.docx&action=default&mobileredirect=true",
+                "notes": [],
+                "category": {
+                    "typeName": "Category",
+                    "id": "",
+                    "name": ""
+                },
+                "tags": ""
+            },
+            "id": "01HT7KLVFKFVZYYTLSDRC3I43SPMI3INDR",
+            "displayName": "",
+            "reference": "",
+            "version": "1.0",
+            "uri": "NoneEmpty://01HT7KLVFKFVZYYTLSDRC3I43SPMI3INDR/1.0",
+            "typeName": "Document"
+        },
+        "customerDecision": {
+            "typeName": "Category",
+            "id": "",
+            "approved": false,
+            "approvedDate": "0001-01-01T00:00:00+00:00",
+            "loanDisbursed": "0001-01-01T00:00:00+00:00"
+        }
+    },
+    "documentAttachments": [
+        {
+            "fileName": "ABC Labs Opp Object.txt",
+            "note": "Doc Notes",
+            "category": {
+                "typeName": "Category",
+                "id": "",
+                "name": ""
+            },
+            "tags": "tag1",
+            "documentUri": "",
+            "typeName": "DocumentAttachment",
+            "id": "00000000-0000-0000-0000-000000000000"
+        }
+    ],
+    "id": "17",
+    "displayName": "NewOppDoe",
+    "reference": "",
+    "version": "",
+    "uri": "NoneEmpty://17/",
+    "typeName": "Opportunity"
+}

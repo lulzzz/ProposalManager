@@ -1,0 +1,187 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>Point</title>
+    <script src="../../Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+
+    <link href="../../Content/Office.css" rel="stylesheet" type="text/css" />
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
+
+    <link href="../../Content/fabric.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/fabric.components.min.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- To enable offline debugging using a local reference to Office.js, use:                        -->
+    <!-- <script src="../../Scripts/Office/MicrosoftAjax.js" type="text/javascript"></script>  -->
+    <!-- <script src="../../Scripts/Office/1/office.js" type="text/javascript"></script>  -->
+
+    <script>
+        var timestamp = Math.random();
+        document.write("<link href='../../Content/App.css?t=" + timestamp + "' rel='stylesheet' type='text/css' />");
+        document.write("<script src='../../Scripts/App/App.js?t=" + timestamp + "' type='text/javascript'></s" + "cript>");
+        document.write("<script src='../../Scripts/App/PowerPoint/Point.js?t=" + timestamp + "' type='text/javascript'></s" + "cript>");
+    </script>
+</head>
+<body>
+    <div id="powerpoint-addin" class="main manage">
+        <div class="header">
+            <div class="nav-header">
+                <a class="n-select" href="javascript:" title="Select File"><i></i><span>Select File</span></a>
+                <a class="n-refresh" href="javascript:" title="Refresh All"><i></i><span>Refresh All</span></a>
+            </div>
+
+            <!--Message begin-->
+            <div id="innerMessageBox" class="ms-MessageBar">
+                <div class="ms-MessageBar-content">
+                    <div class="ms-MessageBar-icon">
+                        <i id="innerMessageIcon" class="ms-Icon"></i>
+                    </div>
+                    <div id="innerMessageText" class="ms-MessageBar-text">
+                    </div>
+                    <div class="close-Message"><i class="ms-Icon ms-Icon--Cancel"></i></div>
+                </div>
+            </div>
+            <!--Message end-->
+
+            <div class="content-header">
+                <div class="manage-header">
+                    <div class="manage-title">
+                        <span id="lblSourcePointName">Source Points</span>
+                    </div>
+                        <div class="search">
+                            <div class="s-input">
+                                <div>
+                                    <input type="text" id="txtSearchSourcePoint" data-default="Search by Source Point Name" />
+                                    <ul id="autoCompleteWrap2" class="search-tooltips"></ul>
+                                </div>
+                            </div>
+                            <div class="s-label">
+                                <i id="iSearchSourcePoint" class="ms-Icon ms-Icon--Search"></i>
+                            </div>
+                        </div>
+                        <ul id="headerListPoints" class="point-list">
+                            <li class="point-header">
+                                <div class="point-header-line">
+                                    <div class="i2"><span>Source Point</span></div>
+                                    <div class="i3"><span>Published Value</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+        </div>
+
+        <!--Footer-->
+        <div class="footer">
+            <i class="f-logo"><img src="../../Images/logo-s-front.png" /></i><span>Smart Link</span>
+            <i class="ms-Icon ms-Icon--Settings f-settings"></i>
+        </div>
+        <div class="settings">
+            <ul>
+                <li>
+                    <a href="javascript:" class="s-username"></a>
+                    <a href="javascript:" class="s-email"></a>
+                </li>
+                <li><a class="s-signout" href="../Account/SignOut" title="Sign Out">Sign out</a></li>
+            </ul>
+            <i class="ms-Icon ms-Icon--Settings s-settings"></i>
+        </div>
+
+        <div class="outer-container">
+            <div class="inner-container">
+                <div class="elements">
+                    <!--Content-->
+                    <div class="content manage-point">
+                        <ul id="listPoints" class="point-list">
+                            <!--
+                            <li class="point-item item-error item-more" data-id="7902cb2d-2155-41e7-b602-1fdd3572428f" data-range="7a692940-a4b8-b1e7-ac0b-42da2a459fd9">
+                                <div class="point-item-line">
+                                    <div class="i2">
+                                        <span class="s-name" data-position="" title="1">1</span>
+                                        <span><strong>Sheet1:</strong>A12</span>
+                                    </div>
+                                    <div class="i3" title="a">a</div>
+                                    <div class="i4" title="">
+                                        <span class="s-position" data-position="" title="1">1</span>
+                                        <span><strong>Sheet1:</strong>A12</span>
+                                    </div>
+                                    <div class="i5">
+                                        <div class="i-line"><i class="i-history" title="History"></i></div>
+                                        <div class="i-menu"><a href="javascript:"><span title="Action">...</span><span><i class="i-history" title="History"></i></span></a></div>
+                                    </div>
+                                </div>
+                                <div class="item-history">
+                                    <h6>Publish History</h6>
+                                    <ul class="history-list">
+                                        <li class="history-header"><div class="h1">Name</div><div class="h2">Value</div><div class="h3">Date</div></li>
+                                        <li class="history-item">
+                                            <div class="h1" title="Todd Baginski">Todd Baginski</div>
+                                            <div class="h2" title="a">a</div><div class="h3" title="04/09/2017 10:26 PM PST">04/09/2017 10:26 PM PST</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            -->
+                        </ul>
+                        <div class="clear"></div>
+                        <div id="pager" class="pager">
+                            <div>
+                                <a class="disabled" id="pagerPrev" href="javascript:"><i class="ms-Icon ms-Icon--TriangleSolidLeft12"></i></a>
+                                <span id="indexes"></span>
+                                <a class="disabled" id="pagerNext" href="javascript:"><i class="ms-Icon ms-Icon--TriangleSolidRight12"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="popupMain" class="popups">
+                        <div class="bg"></div>
+                        <div id="popupMessage" class="popup">
+                            <div id="popupErrorMain" class="error-wrapper">
+                                <h5>Error</h5>
+                                <h6 id="lblErrorTitle"></h6>
+                                <ul id="lblErrorMessage"></ul>
+                                <h6 id="lblErrorRepair"></h6>
+                                <button id="btnErrorOK">OK</button>
+                            </div>
+                        </div>
+                        <div id="popupProcessing" class="popup processing">
+                            <i></i>
+                        </div>
+                        <div id="popupBrowse" class="popup">
+                            <div>
+                                <div class="browse-file">
+                                    <div class="browse-filter">
+                                        <a href="javascript:" id="btnBrowseBack">&lt;&lt; Back</a>
+                                        <i id="btnBrowseCancel"></i>
+                                    </div>
+                                    <div class="browse-content">
+                                        <ul id="browseList"></ul>
+                                    </div>
+                                    <div class="browse-message" id="txtBrowseMessage">
+                                    </div>
+                                </div>
+                                <div class="loading" id="popBrowseLoading">
+                                    <div class="loading-bg"></div>
+                                    <i></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+

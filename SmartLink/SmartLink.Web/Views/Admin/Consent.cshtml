@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+@model SmartLink.Web.ViewModel.AdminConsentViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Consent</title>
+    <style type="text/css">
+        a {
+            font-size: 16px;
+            padding: 5px 15px;
+            background-color: #0078d7;
+            color: #fff;
+        }
+
+        .consent-main {
+            padding: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .consent-main > div {
+            padding: 20px 0;
+        }
+
+        .consent-main > div div.consent-success {
+            color: blue;
+        }
+
+        .consent-main > div div.consent-error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="consent-main">
+        @if (Model.State == "0")
+            {
+            <a href="@Model.Url">Admin Consent</a>
+        }
+        else
+        {
+            <div>
+                @if (Model.State == "1")
+                {
+                    <div class="consent-success">Admin consent succeeded.</div>
+                }
+                else
+                {
+                    <div class="consent-error">Admin consent failed.</div>
+                }
+            </div>
+        }
+    </div>
+</body>
+</html>

@@ -9,13 +9,16 @@ import {
     SelectionMode,
   } from 'office-ui-fabric-react/lib/DetailsList';
 import { ScrollablePane } from 'office-ui-fabric-react/lib/ScrollablePane';
+import { Panel, PanelType } from 'office-ui-fabric-react/lib/Panel';
 import { DocumentService, DocumentApiService } from '../services';
+import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
 export interface INotesState
 {
     notes: INoteIU[];
-    isLoading: boolean,
-    columns: IColumn[]
+    isLoading: boolean;
+    columns: IColumn[];
+    showPanel: boolean;
 }
 
 export interface INotesProps
@@ -34,6 +37,7 @@ export interface INoteIU
 export class Notes extends React.Component<INotesProps,INotesState>
 {
     private documentService: DocumentService;
+    private currentNote: INoteIU;
 
     constructor(props: any)
     {
@@ -58,11 +62,15 @@ export class Notes extends React.Component<INotesProps,INotesState>
 
         this.onSort = this.onSort.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.closeNotePanel = this.closeNotePanel.bind(this);
+        this.activeItemChanged = this.activeItemChanged.bind(this);
+        this.itemInvoked = this.itemInvoked.bind(this);
 
         this.state = {
             columns: columns,
             isLoading: true,
-            notes: []
+            notes: [],
+            showPanel: false
         };
 
         this.documentService = new DocumentService(new DocumentApiService(new ApiService(this.props.token)));
@@ -81,7 +89,7 @@ export class Notes extends React.Component<INotesProps,INotesState>
         {
             case 'name':
                 return (
-                    <div>
+                    <div className="ellipsis">
                         <span className="ms-font-l">{item.noteBody}</span><br/>
                         <span className="ms-font-xs">{this.getFormattedDate(item.createdDateTime)}</span>
                     </div>
@@ -89,6 +97,11 @@ export class Notes extends React.Component<INotesProps,INotesState>
             default:
                 return fieldContent;
         }
+    }
+
+    private closeNotePanel()
+    {
+        this.setState({ showPanel: false });
     }
 
     private getFormattedDate(createdDateTime: Date)
@@ -180,6 +193,22 @@ export class Notes extends React.Component<INotesProps,INotesState>
             .catch(err => {console.log(err)});
     }
 
+    private activeItemChanged(item?: any, index?: number, ev?: React.FocusEvent<HTMLElement>)
+    {
+        if(item)
+        {
+            this.currentNote = item as INoteIU;
+        }
+    }
+
+    private itemInvoked(item?: any, index?: number, ev?: Event)
+    {
+        if(this.currentNote)
+        {
+            this.setState({showPanel: true});
+        }
+    }
+
     public render(): JSX.Element
     {
         const { notes, columns, isLoading } = this.state;
@@ -192,20 +221,49 @@ export class Notes extends React.Component<INotesProps,INotesState>
         }
 
         return (
-            <ScrollablePane>
-                <SearchBox
-                    placeholder='Search'
-                    onChanged={this.onChange}
-                />
-                <DetailsList
-                    items={ notes }
-                    columns={ columns }
-                    setKey='set'
-                    selectionMode={SelectionMode.none}
-                    selectionPreservedOnEmptyClick={ true }
-                    layoutMode={ DetailsListLayoutMode.justified }
-                />
-            </ScrollablePane>
+            <div>
+                <Panel
+                isOpen={ this.state.showPanel }
+                type={ PanelType.smallFluid }
+                // tslint:disable-next-line:jsx-no-lambda
+                onDismiss={ this.closeNotePanel }
+                hasCloseButton={false}
+                headerText={"Note details"}>
+                    <div>
+                        {/* <span>Created by:</span><br/>
+                        <div className="ms-font-m">
+                            {this.currentNote ? this.currentNote.createdBy : ""}
+                        </div> */}
+                        <div className="ms-font-m" style={{paddingTop: "10px"}}>
+                            <span>Created:</span><br/>
+                            {this.currentNote ? this.getFormattedDate(this.currentNote.createdDateTime) : ""}
+                        </div>
+                        <div className="ms-font-m" style={{paddingTop: "10px"}}>
+                            <span>Content:</span><br/>
+                            {this.currentNote ? this.currentNote.noteBody : ""}
+                        </div>
+                        <div style={{paddingTop: "10px", display: 'flex'}}>
+                            <div style={{paddingLeft: "10px"}}><PrimaryButton onClick={ this.closeNotePanel } text='Close' /></div>
+                        </div>
+                    </div>
+                </Panel>
+                <ScrollablePane>
+                    <SearchBox
+                        placeholder='Search'
+                        onChanged={this.onChange}
+                    />
+                    <DetailsList
+                        items={ notes }
+                        columns={ columns }
+                        setKey='set'
+                        selectionMode={SelectionMode.none}
+                        selectionPreservedOnEmptyClick={ true }
+                        layoutMode={ DetailsListLayoutMode.justified }
+                        onActiveItemChanged={this.activeItemChanged}
+                        onItemInvoked={this.itemInvoked}
+                    />
+                </ScrollablePane>
+            </div>
         );
     }
 }

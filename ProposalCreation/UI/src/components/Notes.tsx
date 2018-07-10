@@ -11,7 +11,8 @@ import {
 import { ScrollablePane } from 'office-ui-fabric-react/lib/ScrollablePane';
 import { Panel, PanelType } from 'office-ui-fabric-react/lib/Panel';
 import { DocumentService, DocumentApiService } from '../services';
-import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
+import { PrimaryButton, IconButton } from 'office-ui-fabric-react/lib/Button';
+import './notes.css';
 
 export interface INotesState
 {
@@ -56,7 +57,22 @@ export class Notes extends React.Component<INotesProps,INotesState>
               isSorted: true,
               isSortedDescending: true,
               onColumnClick: this.onSort.bind(this),
-              onRender: this.renderColumn.bind(this)
+              onRender: this.renderColumn.bind(this),
+              className: "ms-agile-col-note",
+              headerClassName: "ms-agile-col-note"
+            },
+            {
+                key: 'more',
+                name: '',
+                fieldName: 'more',
+                minWidth: 50,
+                maxWidth: 50,
+                isResizable: false,
+                isRowHeader: true,
+                isPadded: true,
+                onRender: this.renderColumn.bind(this),
+                className: "ms-agile-col-btn",
+                headerClassName: "ms-agile-col-btn"
             }
         ];
 
@@ -64,7 +80,7 @@ export class Notes extends React.Component<INotesProps,INotesState>
         this.onChange = this.onChange.bind(this);
         this.closeNotePanel = this.closeNotePanel.bind(this);
         this.activeItemChanged = this.activeItemChanged.bind(this);
-        this.itemInvoked = this.itemInvoked.bind(this);
+        this.openNotePanel = this.openNotePanel.bind(this);
 
         this.state = {
             columns: columns,
@@ -94,9 +110,28 @@ export class Notes extends React.Component<INotesProps,INotesState>
                         <span className="ms-font-xs">{this.getFormattedDate(item.createdDateTime)}</span>
                     </div>
                 );
+            case 'more':
+                return (
+                    <IconButton
+                        iconProps={ { iconName: 'MoreVertical' } }
+                        title='Open'
+                        ariaLabel='MoreVertical'
+                        onClick={
+                            (e) => {
+                                e.preventDefault();
+                                this.openNotePanel(item);
+                            }
+                        }
+                    />
+                );
             default:
                 return fieldContent;
         }
+    }
+
+    private openNotePanel(item: any)
+    {
+        this.setState({ showPanel: true });
     }
 
     private closeNotePanel()
@@ -201,14 +236,6 @@ export class Notes extends React.Component<INotesProps,INotesState>
         }
     }
 
-    private itemInvoked(item?: any, index?: number, ev?: Event)
-    {
-        if(this.currentNote)
-        {
-            this.setState({showPanel: true});
-        }
-    }
-
     public render(): JSX.Element
     {
         const { notes, columns, isLoading } = this.state;
@@ -260,7 +287,6 @@ export class Notes extends React.Component<INotesProps,INotesState>
                         selectionPreservedOnEmptyClick={ true }
                         layoutMode={ DetailsListLayoutMode.justified }
                         onActiveItemChanged={this.activeItemChanged}
-                        onItemInvoked={this.itemInvoked}
                     />
                 </ScrollablePane>
             </div>

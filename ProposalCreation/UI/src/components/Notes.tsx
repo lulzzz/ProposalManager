@@ -275,10 +275,24 @@ export class Notes extends React.Component<INotesProps,INotesState>
                     </div>
                 </Panel>
                 <ScrollablePane>
-                    <SearchBox
-                        placeholder='Search'
-                        onChanged={this.onChange}
+                    <div style={{display: 'flex', paddingTop: '10px'}}>
+                        <SearchBox
+                            placeholder='Search'
+                            onChanged={this.onChange}
+                            className="ms-search-notes"
+                        />
+                        <IconButton
+                            iconProps={ { iconName: 'Refresh' } }
+                            title='Refresh'
+                            ariaLabel='Refresh'
+                            onClick={
+                                (e) => {
+                                    e.preventDefault();
+                                    this.loadNotes();
+                                }
+                            }
                     />
+                    </div>
                     <DetailsList
                         items={ notes }
                         columns={ columns }

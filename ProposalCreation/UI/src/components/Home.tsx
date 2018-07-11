@@ -549,7 +549,21 @@ export class Home extends React.Component<IHomeProps,IHomeState>
                     </div>
                 </Panel>
                 <ScrollablePane>
-                    <h1 className='ms-font-xxl'>{title}</h1>
+                    <div style={{display: 'flex'}}> 
+                        <h1 className='ms-font-xxl ms-search-notes'>{title}</h1>
+                        <IconButton
+                        className='ms-agile-refresh'
+                        iconProps={ { iconName: 'Refresh' } }
+                        title='Refresh'
+                        ariaLabel='Refresh'
+                        onClick={
+                            (e) => {
+                                e.preventDefault();
+                                this.loadDocument();
+                            }
+                        }
+                    />
+                </div>
                     <MarqueeSelection selection={ this.selection }>
                         <DetailsList
                             items={ data }

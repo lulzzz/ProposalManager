@@ -10,6 +10,8 @@ import {
     SelectionMode,
   } from 'office-ui-fabric-react/lib/DetailsList';
 import { ScrollablePane } from 'office-ui-fabric-react/lib/ScrollablePane';
+import { IconButton } from 'office-ui-fabric-react/lib/Button';
+import './documents.css';
 
 export interface IDocument
 {
@@ -90,7 +92,6 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
             isLoading: true
         };
 
-        //this.apiService = new ApiService(this.props.token);
         this.documentService = new DocumentService(new DocumentApiService(new ApiService(this.props.token)));
     }
 
@@ -210,10 +211,24 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
 
         return (
             <ScrollablePane>
-                <SearchBox
-                    placeholder='Search'
-                    onChanged={this.onChange.bind(this)}
-                />
+                <div style={{display: 'flex', paddingTop: '10px'}}>
+                    <SearchBox
+                        className="ms-search-notes"
+                        placeholder='Search'
+                        onChanged={this.onChange.bind(this)}
+                    />
+                    <IconButton
+                        iconProps={ { iconName: 'Refresh' } }
+                        title='Refresh'
+                        ariaLabel='Refresh'
+                        onClick={
+                            (e) => {
+                                e.preventDefault();
+                                this.loadDocuments();
+                            }
+                        }
+                    />
+                </div>
                 <DetailsList
                     items={ data }
                     columns={ columns }

@@ -13,6 +13,7 @@ import { Panel, PanelType } from 'office-ui-fabric-react/lib/Panel';
 import { DocumentService, DocumentApiService } from '../services';
 import { PrimaryButton, IconButton } from 'office-ui-fabric-react/lib/Button';
 import './notes.css';
+import { ErrorPopup } from './ErrorPopup';
 
 export interface INotesState
 {
@@ -20,11 +21,12 @@ export interface INotesState
     isLoading: boolean;
     columns: IColumn[];
     showPanel: boolean;
+    error?: any;
 }
 
 export interface INotesProps
 {
-    token: string
+    token: string;
 }
 
 export interface INoteIU
@@ -32,7 +34,7 @@ export interface INoteIU
     id: string,
     noteBody: string,
     createdDateTime: Date,
-    createdBy: string
+    createdBy: string;
 }
 
 export class Notes extends React.Component<INotesProps,INotesState>
@@ -198,7 +200,7 @@ export class Notes extends React.Component<INotesProps,INotesState>
         }
         
         // Update the sort icon
-        newColumns[1].isSortedDescending = !col.isSortedDescending;
+        newColumns[0].isSortedDescending = !col.isSortedDescending;
         this.setState({columns: newColumns, notes: sortedData});
     }
 
@@ -225,7 +227,12 @@ export class Notes extends React.Component<INotesProps,INotesState>
                     });
                 this.setState({ isLoading: false, notes: notes });
             })
-            .catch(err => {console.log(err)});
+            .catch(
+                err => 
+                {
+                    this.setState({error: err});
+                }
+            );
     }
 
     private activeItemChanged(item?: any, index?: number, ev?: React.FocusEvent<HTMLElement>)
@@ -238,7 +245,14 @@ export class Notes extends React.Component<INotesProps,INotesState>
 
     public render(): JSX.Element
     {
-        const { notes, columns, isLoading } = this.state;
+        const { notes, columns, isLoading, error } = this.state;
+
+        if(error)
+        {
+            return (
+                <ErrorPopup error={error}/>
+            );
+        }
 
         if(isLoading)
         {

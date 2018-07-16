@@ -23,6 +23,7 @@ import { PrimaryButton, DefaultButton, IconButton } from 'office-ui-fabric-react
 import { Panel, PanelType } from 'office-ui-fabric-react/lib/Panel';
 import { ApiService } from '../services/ApiService'
 import './home.css';
+import { ErrorPopup } from './ErrorPopup';
 
 export interface IHomeState
 {
@@ -36,6 +37,7 @@ export interface IHomeState
     peopleList: IPersonaProps[];
     isSaving: boolean;
     showPanel: boolean;
+    error?: any;
 }
 const suggestionProps: IBasePickerSuggestionsProps = {
     suggestionsHeaderText: 'Suggested Members',
@@ -473,7 +475,12 @@ export class Home extends React.Component<IHomeProps,IHomeState>
             
                 this.setState({document: document, data: sections, isLoading: false, title: documentName, isDocumentLoaded: true, peopleList: peopleList });
             })
-            .catch(err => {console.log(err)});
+            .catch(
+                err => 
+                {
+                    this.setState({error: err});
+                }
+            );
     }
 
     private onChange(text: any): void
@@ -492,7 +499,14 @@ export class Home extends React.Component<IHomeProps,IHomeState>
 
     public render(): JSX.Element
     {
-        const { data, columns, isLoading, title, isDocumentLoaded, isSaving } = this.state;
+        const { data, columns, isLoading, title, isDocumentLoaded, isSaving, error } = this.state;
+
+        if(error)
+        {
+            return (
+                <ErrorPopup error={error}/>
+            );
+        }
 
         if(isLoading)
         {

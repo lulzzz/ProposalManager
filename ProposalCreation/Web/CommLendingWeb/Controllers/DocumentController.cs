@@ -36,10 +36,20 @@ namespace CommLendingWeb.Controllers
 		}
 
 		[HttpPost]
-		public async Task UpdateTask(string opportunityId, string documentData)
+		public async Task<IActionResult> UpdateTask(string opportunityId, string documentData)
 		{
 			try
 			{
+				if(string.IsNullOrWhiteSpace(opportunityId))
+				{
+					return BadRequest($"{nameof(opportunityId)} is required");
+				}
+
+				if (string.IsNullOrWhiteSpace(documentData))
+				{
+					return BadRequest($"{nameof(documentData)} is required");
+				}
+
 				var uri = $"{ProposalManagerApiUrl}/api/Opportunity";
 				var client = GetAuthorizedWebClient();
 				var content = new StringContent(documentData, Encoding.UTF8, "application/json");
@@ -50,28 +60,36 @@ namespace CommLendingWeb.Controllers
 
 				if(!response.IsSuccessStatusCode)
 				{
-					throw new Exception(response.ReasonPhrase);
+					return BadRequest(response.ReasonPhrase);
 				}
+
+				return Ok();
 			}
 			catch (Exception ex)
 			{
-				throw new Exception($"Error updating Opportunity: {ex.Message}");
+				return BadRequest($"Error updating Opportunity: {ex.Message}");
 			}
 		}
 
 		[HttpGet]
-		public async Task<string> GetFormalProposal(string id)
+		public async Task<IActionResult> GetFormalProposal(string id)
 		{
 			try
 			{
+				if(string.IsNullOrWhiteSpace(id))
+				{
+					return BadRequest($"{nameof(id)} is required");
+				}
+
 				var client = GetAuthorizedWebClient();
 				
 				var opportunity = await client.GetStringAsync($"{ProposalManagerApiUrl}/api/Opportunity?name={id}");
 
-				return opportunity;
-			}catch(Exception ex)
+				return Ok(opportunity);
+			}
+			catch (Exception ex)
 			{
-				throw ex;
+				return BadRequest(ex.Message);
 			}
 		}
 
@@ -93,7 +111,7 @@ namespace CommLendingWeb.Controllers
 		//}
 
 		[HttpGet]
-		public async Task<IEnumerable<Document>> List(string id)
+		public async Task<IActionResult> List(string id)
 		{
 			//TODO: try to use graph client proxy entities
 			// if not feasible then filter in odata query by displayName eq 'Documents' to reduce payload
@@ -101,6 +119,11 @@ namespace CommLendingWeb.Controllers
 			// Initialize the GraphServiceClient.
 			try
 			{
+				if (string.IsNullOrWhiteSpace(id))
+				{
+					return BadRequest($"{nameof(id)} is required");
+				}
+
 				var graphClient = GraphHelper.GetAuthenticatedClient();
 				var uri = $"https://graph.microsoft.com/v1.0/sites/{SiteId}:/sites/{id}:/lists?$expand=items";
 				var request = new HttpRequestMessage(HttpMethod.Get, uri);
@@ -120,7 +143,7 @@ namespace CommLendingWeb.Controllers
 
 				if(!items.value.HasValues)
 				{
-					return Enumerable.Empty<Document>();
+					return Ok(Enumerable.Empty<Document>());
 				}
 
 				var result = new List<Document>();
@@ -148,11 +171,11 @@ namespace CommLendingWeb.Controllers
 					}
 				}
 
-				return result.OrderBy(x => x.Name);
+				return Ok(result.OrderBy(x => x.Name));
 			}
 			catch (Exception ex)
 			{
-				throw new Exception(ex.Message);
+				return BadRequest(ex.Message);
 			}
 		}
 

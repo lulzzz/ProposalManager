@@ -12,6 +12,7 @@ import {
 import { ScrollablePane } from 'office-ui-fabric-react/lib/ScrollablePane';
 import { IconButton } from 'office-ui-fabric-react/lib/Button';
 import './documents.css';
+import { ErrorPopup } from './ErrorPopup';
 
 export interface IDocument
 {
@@ -25,7 +26,8 @@ export interface IDocumentsState
 {
     data: IDocument[];
     columns: IColumn[];
-    isLoading: boolean
+    isLoading: boolean;
+    error?: any;
 }
 
 export interface IDocumentsProps
@@ -36,7 +38,6 @@ export interface IDocumentsProps
 export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
 {
     private data: IDocument[] = [];
-    //private apiService: ApiService;
     private documentService: DocumentService;
 
     constructor(props: any)
@@ -179,7 +180,6 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
     private loadDocuments()
     {
         this.setState({isLoading: true});
-        //this.apiService.callApi("document", "list", "GET", null)
         this.documentService.getDocuments()
         .then(
             data => {
@@ -190,7 +190,12 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
                 this.setState({data: info, isLoading: false});
             }
         )
-        .catch(err=>{});
+        .catch(
+            err => 
+            {
+                this.setState({error: err});
+            }
+        );
     }
 
     private onChange(text: any): void
@@ -200,8 +205,15 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
 
     public render(): JSX.Element
     {
-        const { data, columns, isLoading } = this.state;
+        const { data, columns, isLoading, error } = this.state;
 
+        if(error)
+        {
+            return (
+                <ErrorPopup error={error}/>
+            );
+        }
+        
         if(isLoading)
         {
             return (

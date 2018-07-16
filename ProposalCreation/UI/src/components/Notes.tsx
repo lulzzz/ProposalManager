@@ -67,7 +67,8 @@ export class Notes extends React.Component<INotesProps,INotesState>
         this.state = {
             columns: columns,
             isLoading: true,
-            notes: []
+            notes: [],
+            showPanel: false
         };
 
         this.documentService = new DocumentService(new DocumentApiService(new ApiService(this.props.token)));
@@ -188,6 +189,18 @@ export class Notes extends React.Component<INotesProps,INotesState>
                     this.setState({error: err});
                 }
             );
+    }
+
+    public render(): JSX.Element
+    {
+        const { notes, columns, isLoading, error } = this.state;
+
+        if(error)
+        {
+            return (
+                <ErrorPopup error={error}/>
+            );
+        }
     }
 
     public render(): JSX.Element

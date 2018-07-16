@@ -68,3 +68,39 @@
 {
     width: 40px !important;
 }
+
+.ms-agile-refresh
+{
+    top: 20px;
+    padding-right: 20px;
+}
+
+.errorTitle
+{
+    padding: 5px;
+    width: 90%;
+}
+
+.errorDetails
+{
+    padding: 5px;
+}
+
+.errorHeader
+{
+    display: flex;
+    height: 30px;
+    background-color:#f4f4f4;
+    color:#333333;
+}
+
+.errorContainer
+{
+    position: absolute;
+    width: 250px;
+    height: 200px;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

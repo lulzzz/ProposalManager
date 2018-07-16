@@ -6,17 +6,17 @@ import {
     PivotLinkFormat
 } from 'office-ui-fabric-react/lib/Pivot';
 import { MessageBar, MessageBarType } from 'office-ui-fabric-react/lib/MessageBar';
-import {Link} from 'office-ui-fabric-react/lib/Link';
 import { Home } from './Home';
 import { Documents } from './Documents';
 import { Notes } from './Notes';
+import { ErrorBoundary } from './ErrorBoundary';
 
 export interface IMainProps
 {
     token: string
 }
 
-export class Main extends React.Component<IMainProps, any> {
+export class Main extends React.Component<IMainProps> {
     constructor(props, context) {
         super(props, context);
     }
@@ -37,7 +37,7 @@ export class Main extends React.Component<IMainProps, any> {
 
         return (
             <div className='ms-welcome'>
-                 <MessageBar
+                <MessageBar
                     messageBarType={ MessageBarType.info }
                     isMultiline={ false }
                     onDismiss={ log('test') }
@@ -45,26 +45,26 @@ export class Main extends React.Component<IMainProps, any> {
                     truncated={ true }
                     overflowButtonAriaLabel='Overflow'
                     >
-                    Fabrikam / Opportunity 01 <br/>
-                    Description of the Opportunity 1 by Fabrikam. <Link href='www.bing.com'>View details in the portal.</Link>
+                    Opportunity description
                 </MessageBar>
                 <div className='ms-welcome__pivot' style={paddingLeft}>
-                    <Pivot linkFormat={PivotLinkFormat.links}>
-                        <PivotItem linkText='Home' >
-                            <Home token={this.props.token}/>
-                        </PivotItem>
+                    <ErrorBoundary>
+                        <Pivot linkFormat={PivotLinkFormat.links}>
+                            <PivotItem linkText='Home' >
+                                <Home token={this.props.token}/>
+                            </PivotItem>
 
-                        <PivotItem linkText='Documents'>
-                           <Documents token={this.props.token}/>
-                        </PivotItem>
+                            <PivotItem linkText='Documents'>
+                            <Documents token={this.props.token}/>
+                            </PivotItem>
 
-                        <PivotItem linkText='Call Reports'>
-                            <Notes token={this.props.token}/>
-                        </PivotItem>
-                    </Pivot>
+                            <PivotItem linkText='Call Reports'>
+                                <Notes token={this.props.token}/>
+                            </PivotItem>
+                        </Pivot>
+                    </ErrorBoundary>
                 </div>
             </div>
-            
         );
     };
 };

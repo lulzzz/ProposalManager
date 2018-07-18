@@ -7,6 +7,8 @@
     <Authors></Authors>
     <Company>Microsoft</Company>
     <Product>Microsoft</Product>
+    <ApplicationIcon />
+    <Win32Resource />
   </PropertyGroup>
   
   <ItemGroup>

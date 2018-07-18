@@ -201,18 +201,6 @@ export class Notes extends React.Component<INotesProps,INotesState>
                 <ErrorPopup error={error}/>
             );
         }
-    }
-
-    public render(): JSX.Element
-    {
-        const { notes, columns, isLoading, error } = this.state;
-
-        if(error)
-        {
-            return (
-                <ErrorPopup error={error}/>
-            );
-        }
 
         if(isLoading)
         {

@@ -13,13 +13,14 @@ import { ScrollablePane } from 'office-ui-fabric-react/lib/ScrollablePane';
 import { IconButton } from 'office-ui-fabric-react/lib/Button';
 import './documents.css';
 import { ErrorPopup } from './ErrorPopup';
+import { LocalizationService } from '../services/LocalizationService';
 
 export interface IDocument
 {
     name: string;
     webUrl: string;
     id: string;
-    type: string
+    type: string;
 }
 
 export interface IDocumentsState
@@ -32,7 +33,8 @@ export interface IDocumentsState
 
 export interface IDocumentsProps
 {
-    token: string
+    token: string;
+    localizationService: LocalizationService;
 }
 
 export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
@@ -43,6 +45,7 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
     constructor(props: any)
     {
         super(props);
+        const { localizationService } = props;
 
         const columns: IColumn[] = [
             {
@@ -61,7 +64,7 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
             },
             {
               key: 'name',
-              name: 'Name',
+              name: localizationService.getString("Name"),
               fieldName: 'name',
               minWidth: 100,
               maxWidth: 200,
@@ -75,7 +78,7 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
             },
             {
                 key: 'clientDocs',
-                name: 'Client Documents',
+                name: localizationService.getString("ClientDocuments"),
                 fieldName: 'clientDocs',
                 minWidth: 100,
                 maxWidth: 200,
@@ -206,6 +209,7 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
     public render(): JSX.Element
     {
         const { data, columns, isLoading, error } = this.state;
+        const { localizationService } = this.props;
 
         if(error)
         {
@@ -217,7 +221,7 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
         if(isLoading)
         {
             return (
-                <Loading message="Loading..."/>
+                <Loading message={localizationService.getString("Loading")+"..."}/>
             );
         }
 
@@ -226,12 +230,12 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
                 <div style={{display: 'flex', paddingTop: '10px'}}>
                     <SearchBox
                         className="ms-search-notes"
-                        placeholder='Search'
+                        placeholder={localizationService.getString("Search")}
                         onChanged={this.onChange.bind(this)}
                     />
                     <IconButton
                         iconProps={ { iconName: 'Refresh' } }
-                        title='Refresh'
+                        title={localizationService.getString("Refresh")}
                         ariaLabel='Refresh'
                         onClick={
                             (e) => {

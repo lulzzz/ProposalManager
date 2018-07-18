@@ -509,7 +509,7 @@ export class Home extends React.Component<IHomeProps,IHomeState>
         if(error)
         {
             return (
-                <ErrorPopup error={error}/>
+                <ErrorPopup error={error}  localizationService={localizationService}/>
             );
         }
 

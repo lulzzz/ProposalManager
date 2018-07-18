@@ -40,7 +40,16 @@ export class DocumentApiService implements IDocumentService
                 .then(data => {
                     this.rawDocument = JSON.parse(data.toString());
                     return this.rawDocument as IDocument;
-                });
+                })
+                .catch(error =>
+                    {
+                        if(error.status == 0)
+                        {
+                            throw new Error("Connection error.");
+                        }
+            
+                        return error;
+                    });
     }
 
     public async getDocuments()
@@ -51,6 +60,15 @@ export class DocumentApiService implements IDocumentService
         return this.apiService.callApi("document", "list", "GET", args)
         .then(data => {
             return data;
+        })
+        .catch(error =>
+        {
+            if(error.status == 0)
+            {
+                throw new Error("Connection error.");
+            }
+
+            return error;
         });
     }
 
@@ -78,7 +96,16 @@ export class DocumentApiService implements IDocumentService
 
                     return section;
                 });
-            });
+            })
+            .catch(error =>
+                {
+                    if(error.status == 0)
+                    {
+                        throw new Error("Connection error.");
+                    }
+        
+                    return error;
+                });
     }
 
     public insertText(text: string): void

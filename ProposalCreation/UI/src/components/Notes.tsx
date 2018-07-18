@@ -257,7 +257,7 @@ export class Notes extends React.Component<INotesProps,INotesState>
         if(error)
         {
             return (
-                <ErrorPopup error={error}/>
+                <ErrorPopup error={error} localizationService={localizationService}/>
             );
         }
 

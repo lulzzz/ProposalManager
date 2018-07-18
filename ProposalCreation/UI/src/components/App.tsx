@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { SignIn } from './SignIn';
 import { Requirements } from './Requirements';
+import { LocalizationService } from '../services/LocalizationService';
 
 export interface AppProps {
     title: string;
@@ -12,8 +13,11 @@ export interface AppState {
 }
 
 export default class App extends React.Component<AppProps, AppState> {
+    private localizationService: LocalizationService;
     constructor(props, context) {
         super(props, context);
+
+        this.localizationService = new LocalizationService();
     }
 
     checkRequirements = () =>
@@ -37,6 +41,7 @@ export default class App extends React.Component<AppProps, AppState> {
             {
                 return (
                     <SignIn
+                        localizationService = {this.localizationService}
                         title={this.props.title}
                         logo='dist/assets/logo-filled.png'
                         message='You are not logged in. Please sign in.'
@@ -54,7 +59,7 @@ export default class App extends React.Component<AppProps, AppState> {
         return (
             <div>
                 <section className='ms-welcome__progress ms-u-fadeIn500'>
-                    <h1 className='ms-font-xl'>Initializing Add in</h1>
+                    <h1 className='ms-font-xl'>{this.localizationService.getString("InitAddin")}</h1>
                 </section>
             </div>
         );

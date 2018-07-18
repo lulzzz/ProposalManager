@@ -10,10 +10,12 @@ import { Home } from './Home';
 import { Documents } from './Documents';
 import { Notes } from './Notes';
 import { ErrorBoundary } from './ErrorBoundary';
+import { LocalizationService } from '../services/LocalizationService';
 
 export interface IMainProps
 {
     token: string
+    localizationService: LocalizationService;
 }
 
 export class Main extends React.Component<IMainProps> {
@@ -28,6 +30,8 @@ export class Main extends React.Component<IMainProps> {
     }
 
     public render() {
+        const { localizationService, token } = this.props;
+
         const paddingLeft = {
             paddingLeft: "5px"
         };
@@ -42,7 +46,7 @@ export class Main extends React.Component<IMainProps> {
                     isMultiline={ false }
                     onDismiss={ log('test') }
                     dismissButtonAriaLabel='Close'
-                    truncated={ true }
+                    truncated={ false }
                     overflowButtonAriaLabel='Overflow'
                     >
                     Opportunity description
@@ -50,16 +54,16 @@ export class Main extends React.Component<IMainProps> {
                 <div className='ms-welcome__pivot' style={paddingLeft}>
                     <ErrorBoundary>
                         <Pivot linkFormat={PivotLinkFormat.links}>
-                            <PivotItem linkText='Home' >
-                                <Home token={this.props.token}/>
+                            <PivotItem linkText={localizationService.getString("Home")} >
+                                <Home token={token} localizationService={localizationService}/>
                             </PivotItem>
 
-                            <PivotItem linkText='Documents'>
-                            <Documents token={this.props.token}/>
+                            <PivotItem linkText={localizationService.getString("Documents")}>
+                            <Documents token={token} localizationService={localizationService}/>
                             </PivotItem>
 
-                            <PivotItem linkText='Call Reports'>
-                                <Notes token={this.props.token}/>
+                            <PivotItem linkText={localizationService.getString("CallReports")}>
+                                <Notes token={token} localizationService={localizationService}/>
                             </PivotItem>
                         </Pivot>
                     </ErrorBoundary>

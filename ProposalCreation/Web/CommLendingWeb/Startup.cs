@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Globalization;
 
 namespace CommLendingWeb
 {
@@ -42,12 +44,25 @@ namespace CommLendingWeb
             services.AddMemoryCache();
             services.AddSession();
 
+			services.AddLocalization(options => options.ResourcesPath = "Resources");
+			services.Configure<RequestLocalizationOptions>(options =>
+			{
+				var supportedCultures = new[]
+				{
+					new CultureInfo("en-US"),
+					new CultureInfo("es-AR")
+				};
+
+				options.DefaultRequestCulture = new RequestCulture("en-US");
+				options.SupportedCultures = supportedCultures;
+				options.SupportedUICultures = supportedCultures;
+			});
+
             // Add application services.
             //services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<IGraphAuthProvider, GraphAuthProvider>();
             services.AddTransient<IGraphSdkHelper, GraphSdkHelper>();
 			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,11 +81,18 @@ namespace CommLendingWeb
                 app.UseExceptionHandler("/Home/Error");
             }
 
+			app.UseRequestLocalization(new RequestLocalizationOptions()
+			{
+				
+			});
+
             app.UseStaticFiles();
 
             app.UseSession();
 
-            app.UseAuthentication();
+			app.UseAuthentication();
+
+			app.UseRequestLocalization();
 
 			app.UseMvc(routes =>
             {

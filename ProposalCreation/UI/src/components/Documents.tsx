@@ -96,7 +96,6 @@ export class Documents extends React.Component<IDocumentsProps,IDocumentsState>
             isLoading: true
         };
 
-        //this.apiService = new ApiService(this.props.token);
         this.documentService = new DocumentService(new DocumentApiService(new ApiService(this.props.token)));
     }
 

@@ -13,14 +13,13 @@ import { ScrollablePane } from 'office-ui-fabric-react/lib/ScrollablePane';
 import { MarqueeSelection } from 'office-ui-fabric-react/lib/MarqueeSelection';
 import { IDocument, ISection } from '../models';
 import { IPersonaProps } from 'office-ui-fabric-react/lib/Persona';
-import { IconButton } from 'office-ui-fabric-react/lib/Button';
 import {
     CompactPeoplePicker,
     IBasePickerSuggestionsProps,
     ValidationState
   } from 'office-ui-fabric-react/lib/Pickers';
 import { assign } from 'office-ui-fabric-react/lib/Utilities';
-import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button';
+import { PrimaryButton, DefaultButton, IconButton } from 'office-ui-fabric-react/lib/Button';
 import { Panel, PanelType } from 'office-ui-fabric-react/lib/Panel';
 import { ApiService } from '../services/ApiService'
 import './home.css';
@@ -41,8 +40,6 @@ export interface IHomeState
     showPanel: boolean;
     error?: any;
 }
-import './home.css';
-
 const suggestionProps: IBasePickerSuggestionsProps = {
     suggestionsHeaderText: 'Suggested Members',
     noResultsFoundText: 'No results found',
